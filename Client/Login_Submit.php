@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Passwords match, login successful
         $_SESSION['client_id'] = $client_id;
         $_SESSION['fullname'] = $fullname;
-        header("Location: index.php"); // Redirect to index.php
+        header("Location: index.php"); // Redirect to client land page | index.php
         exit();
     } else {
         // Login failed
