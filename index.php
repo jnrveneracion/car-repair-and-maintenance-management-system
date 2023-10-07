@@ -7,93 +7,9 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="CSS/style.css">
+     <link rel="stylesheet" href="CSS/bg-style-a.css">
      <title>VRMMS | Home</title>
-     <style>
-          body {
-               background-image: url('Assets/background-picture.jpg');
-               background-size: cover;
-               background-repeat: no-repeat;
-               background-attachment: fixed;
-          }
-
-          .f-height {
-               height: fit-content;
-               margin-top: 50px;
-               margin-bottom: 130px;
-          }
-
-          .section {
-               background-color: rgba(0, 0, 0, 0.29);
-               padding: 50px 5%;
-               height: fit-content;
-               width: 100%;
-          }
-
-          .head-text {
-               font-family: Avenir Next Condensed;
-               font-weight: 600;
-               font-size: 30px;
-               letter-spacing: 2px;
-          }
-
-          .head-sub-text {
-               font-family: 'Alex Brush', cursive;
-               font-size: 40px;
-               margin-top: -20px;
-               color: color(srgb 0.9702 0.7395 0.3452);
-               line-height: 40px;
-          }
-
-          .yellow-btn {
-               background-color: color(srgb 0.9702 0.7395 0.3452);
-               margin: 4px 5px;
-               border-radius: 20px;
-               width: 120px;
-               padding: 10px 15px;
-               text-decoration: none;
-               color: white;
-               font-weight: bold;
-          }
-
-          .yellow-btn:hover {
-               color: rgb(226, 226, 226);
-          }
-
-          .ribbon {
-               background-image: url('Assets/ribbon.png');
-               background-position: center;
-               background-size: cover;
-               height: 280px;
-               width: 230px;
-          }
-
-          .sched-text, .info-text {
-               font-size: 13px;
-               color: black;
-          }
-
-          .yellow-divider {
-               padding: 30px;
-               background-color: color(srgb 0.9519 0.7312 0.3439);
-               border-radius: 50px;
-          }
-
-
-          /* footer */
-          .footer-nav-link {
-               color: black;
-               text-decoration: none;
-          }
-
-          .footer-nav-link:hover {
-               color: gray;
-          }
-
-          .footer-top-section {
-               background-color: #f7bd588a;
-               padding: 10px 70px;
-          }
-     </style>
 </head>
 <body>
      <?php include "common/navbar.php"?>
