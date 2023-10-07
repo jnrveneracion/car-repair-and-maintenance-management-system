@@ -7,45 +7,6 @@
      <title>Get In Touch</title>
      <link rel="stylesheet" href="CSS/bg-style-a.css">
      <link rel="stylesheet" href="CSS/style.css">
-
-     <style>
-          .contact-section {
-               background-color: color(srgb 0.9662 0.7357 0.3442);
-               color: white;
-               padding: 40px 0px;
-               width: 400px;
-               height: fit-content;
-          }
-
-          .label {
-               background-color: color(srgb 0.9702 0.7395 0.3452);
-               border: none;
-               color: white;
-               border-radius: 15px 0px 0px 15px;
-               width: 20%;
-          }
-
-          .input {
-               background-color: color(srgb 0.9662 0.7357 0.3442);
-               border: none;
-               border-radius: 0px 15px 15px 0px;
-               color: white;
-               width: 80%;
-               padding: 10px;
-          }
-
-          .submit-btn {
-               background-color: color(srgb 0.9662 0.7357 0.3442);
-               border: none;
-               border-radius: 10px;
-               color: white;
-          }
-
-          .submit-btn:hover {
-               background-color: color(srgb 0.9662 0.7357 0.3442);
-               color: gray;
-          }
-     </style>
 </head>
 <body>
      <?php include "common/navbar.php" ?>
@@ -85,7 +46,7 @@
                <div class="col-xl-6 col-12">
                     <div class="m-3">
                          <div class="w-100">
-                              <form action="POST">
+                              <form action="">
                                    <div class="input-group mb-3">
                                         <span class="input-group-text label" id="name">Name:</span>
                                         <input type="text" class="input" aria-label="name" name="name" aria-describedby="basic-addon1">

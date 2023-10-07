@@ -37,7 +37,7 @@
 <div style="width: 100%; position: sticky; top: 0;">
      <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
           <div class="container-fluid d-flex justify-content-between" id="navbar-section">
-               <a class="navbar-brand" href="#"><img src="Assets/navbar-logo.png" width="250" alt=""></a>
+               <a class="navbar-brand" href="#"><img src="../Assets/navbar-logo.png" width="250" alt=""></a>
                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -45,22 +45,22 @@
                <div class="collapse navbar-collapse justify-content-end text-center" id="navbarNav">
                     <ul class="navbar-nav align-items-center">
                          <li class="nav-item">
-                              <a class="nav-link" aria-current="page" href="index.php">Home</a>
+                              <a class="nav-link" aria-current="page" href="../index.php">Home</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link" href="about-us.php">About Us</a>
+                              <a class="nav-link" href="../about-us.php">About Us</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link" href="services.php">Services</a>
+                              <a class="nav-link" href="../services.php">Services</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link" href="contact.php">Contact</a>
+                              <a class="nav-link" href="../contact.php">Contact</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link yellow-btn" href="Client/Login.php">Sign In</a>
+                              <a class="nav-link yellow-btn" href="Login.php">Sign In</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link yellow-btn" href="Client/Client_Register.php">Register</a>
+                              <a class="nav-link yellow-btn" href="Client_Register.php">Register</a>
                          </li>
                     </ul>
                </div>
