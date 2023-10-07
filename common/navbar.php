@@ -45,22 +45,22 @@
                <div class="collapse navbar-collapse justify-content-end text-center" id="navbarNav">
                     <ul class="navbar-nav align-items-center">
                          <li class="nav-item">
-                              <a class="nav-link" aria-current="page" href="#">Home</a>
+                              <a class="nav-link" aria-current="page" href="index.php">Home</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link" href="#">About Us</a>
+                              <a class="nav-link" href="about-us.php">About Us</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link" href="#">Services</a>
+                              <a class="nav-link" href="services.php">Services</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link">Contact</a>
+                              <a class="nav-link" href="contact.php">Contact</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link yellow-btn" href="#">Sign In</a>
+                              <a class="nav-link yellow-btn" href="login.php">Sign In</a>
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link yellow-btn" href="#">Register</a>
+                              <a class="nav-link yellow-btn" href="register.php">Register</a>
                          </li>
                     </ul>
                </div>

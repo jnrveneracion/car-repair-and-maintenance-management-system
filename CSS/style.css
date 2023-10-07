@@ -59,19 +59,3 @@
      background-color: color(srgb 0.9519 0.7312 0.3439);
      border-radius: 50px;
 }
-
-
-/* footer */
-.footer-nav-link {
-     color: black;
-     text-decoration: none;
-}
-
-.footer-nav-link:hover {
-     color: gray;
-}
-
-.footer-top-section {
-     background-color: #f7bd588a;
-     padding: 10px 70px;
-}
