@@ -6,20 +6,7 @@
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
      <title>About Us</title>
      <link rel="stylesheet" href="CSS/bg-style-a.css">
-     <style>
-          .head-section {
-               background-color: rgba(0, 0, 0, 0.29);
-               padding: 10px 0px;
-               text-align: center;
-               color: white;
-               font-size: 40px;
-               font-weight: bold;
-          }
-
-          .check-img {
-               margin: 0px 25px;
-          }
-     </style>
+     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
      <?php include "common/navbar.php" ?>

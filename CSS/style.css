@@ -59,3 +59,28 @@
      background-color: color(srgb 0.9519 0.7312 0.3439);
      border-radius: 50px;
 }
+
+
+/* about us and services css */
+.head-section {
+     background-color: rgba(0, 0, 0, 0.29);
+     padding: 10px 0px;
+     text-align: center;
+     color: white;
+     font-size: 40px;
+     font-weight: bold;
+     letter-spacing: 3px;
+}
+
+.check-img {
+     margin: 0px 25px;
+}
+
+.box-section {
+     background-color: color(srgb 0.0472 0.1883 0.2773);
+     color: white;
+     padding: 30px;
+     border-radius: 40px;
+     text-align: center;
+     min-height: 250px;
+}
