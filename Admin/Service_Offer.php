@@ -17,10 +17,10 @@ if (!$result) {
         echo '<table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Service ID</th>
-                        <th scope="col">Service Name</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Service Type</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Type</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -30,9 +30,9 @@ if (!$result) {
         while ($row = mysqli_fetch_assoc($result)) {
             echo '<tr>
                     <td>' . $row['service_id'] . '</td>
-                    <td>' . $row['service_name'] . '</td>
-                    <td>' . $row['description'] . '</td>
                     <td>' . $row['type'] . '</td>
+                    <td>' . $row['description'] . '</td>
+                    <td>' . $row['status'] . '</td>
                     <td>
                     <a href="Service_Offer_Form.php?service_id=' . $row['service_id'] . '" class="btn btn-primary">Edit</a>
                     <a href="Delete_Service_Offer.php?service_id=' . $row['service_id'] . '" class="btn btn-danger">Delete</a>

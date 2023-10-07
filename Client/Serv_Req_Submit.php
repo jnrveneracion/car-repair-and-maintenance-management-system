@@ -15,9 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = "INSERT INTO service_request (car_model, car_brand, car_reg_num, service_type, car_problem, request_date, client_id, service_id, cost_id) VALUES (?, ?, ?, ?, ?, NOW(), ?, ?, ?)";
     
     // You'll need to replace these placeholders with actual values.
-    $client_id = 1; // Replace with the actual client ID
-    $service_id = 1; // Replace with the actual service ID
-    $cost_id = 1; // Replace with the actual cost ID
+    $client_id = 21; // Replace with the actual client ID
+    $service_id = 21; // Replace with the actual service ID
+    $cost_id = 21; // Replace with the actual cost ID
 
     $stmt = mysqli_prepare($con, $query);
     mysqli_stmt_bind_param($stmt, 'ssssiiii', $car_model, $car_brand, $car_reg_num, $service_type, $car_problem, $client_id, $service_id, $cost_id);

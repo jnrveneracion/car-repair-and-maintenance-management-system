@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2023 at 07:12 PM
+-- Generation Time: Oct 07, 2023 at 08:09 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -35,6 +35,13 @@ CREATE TABLE `admin` (
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `fullname`, `username`, `password`) VALUES
+(1, 'admin', 'admin', 'admin');
+
 -- --------------------------------------------------------
 
 --
@@ -56,7 +63,10 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`client_id`, `fullname`, `email`, `mobile_number`, `address`, `username`, `password`) VALUES
-(19, 'janrie', 'po@gmail.com', 23232, '123', 'janrie', '123');
+(19, 'janrie', 'po@gmail.com', 23232, '123', 'janrie', '123'),
+(20, 'Chaz', 'chazpascual@yahoo.com', 123, 'sdasd', 'chazz', '123'),
+(21, 'jericho empleo', 'po@gmail.com', 23232, 'sadad', '123', '123'),
+(23, 'Janrie Veneracion', 'janrie@gmail.com', 123, 'Calocan', 'Janrie', '123');
 
 -- --------------------------------------------------------
 
@@ -100,8 +110,24 @@ CREATE TABLE `mechanic` (
   `skill` varchar(100) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(20) NOT NULL,
-  `address` varchar(100) NOT NULL
+  `address` varchar(100) NOT NULL,
+  `mobile_number` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mechanic`
+--
+
+INSERT INTO `mechanic` (`mechanic_id`, `fullname`, `skill`, `username`, `password`, `address`, `mobile_number`) VALUES
+(5, 'Jer', 'sada', 'sada', 'sadsa', 'Phildsa', 0),
+(6, 'Jer', 'sada', 'dsadsadas', 'sadsa', 'Phildsa', 0),
+(9, 'Jeraaa', 'sada', 'dsadsadasaaaa', 'sadsa', 'Phildsa', 0),
+(10, 'jericho empleo', 'fg', 'fdgfd', '123', 'sadad', 0),
+(11, 'venes', 'sadsa', '123', '123', 'sdadsa', 0),
+(13, 'jericho empleo', 'asdsa', '123sed', 'asdas', 'sadad', 0),
+(15, 'jericho empleo', '12312', '123sed', 'asdas', 'sadad', 0),
+(16, 'jericho empleo1111', '12312', '123sed', 'asdas', 'sadad', 0),
+(17, 'jericho empleo', 'cleaning', '123', '123', 'sadad', 23232);
 
 -- --------------------------------------------------------
 
@@ -113,8 +139,26 @@ CREATE TABLE `services_offer` (
   `service_id` int(11) NOT NULL,
   `service_name` varchar(100) NOT NULL,
   `description` text NOT NULL,
-  `type` varchar(20) NOT NULL
+  `type` varchar(20) NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `services_offer`
+--
+
+INSERT INTO `services_offer` (`service_id`, `service_name`, `description`, `type`, `status`) VALUES
+(11, 'lamp', 'dsasa', 'sada', '0'),
+(12, 'dsa', 'sadsa', 'dasdas', '0'),
+(13, 'dsa', 'sadsa', 'dasdas', '0'),
+(14, 'charge2', 'asd', 'asdadssa', '0'),
+(15, 'cand', 'sadsa', 'asda', '0'),
+(16, 'sm,art', 'asdas', 'asdsa', '0'),
+(17, 'ballpen2222', 'aaaaaaaaa', 'asdas', '0'),
+(18, 'sandy', 'sadsad', 'sada', '0'),
+(19, '', 'sdas', 'as', '0'),
+(20, '', 'sda', 'as', 'active'),
+(21, '', 'sadsada', 'Cleaning', 'Active');
 
 -- --------------------------------------------------------
 
@@ -127,11 +171,19 @@ CREATE TABLE `service_cost` (
   `service_type` varchar(30) NOT NULL,
   `labor_cost` decimal(10,2) NOT NULL,
   `parts_cost` decimal(10,2) NOT NULL,
+  `total_cost` decimal(11,2) NOT NULL,
   `comment` text NOT NULL,
-  `service_id` int(11) NOT NULL,
-  `client_id` int(11) NOT NULL,
+  `request_id` int(11) NOT NULL,
   `mechanic_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `service_cost`
+--
+
+INSERT INTO `service_cost` (`cost_id`, `service_type`, `labor_cost`, `parts_cost`, `total_cost`, `comment`, `request_id`, `mechanic_id`) VALUES
+(1, '1212', '11111.00', '1212.00', '0.00', '123', 1138, 17),
+(2, '1000', '200.00', '0.00', '0.00', 'Assigned already', 1139, 17);
 
 -- --------------------------------------------------------
 
@@ -160,24 +212,25 @@ CREATE TABLE `service_request` (
   `car_brand` varchar(20) NOT NULL,
   `car_reg_num` varchar(20) NOT NULL,
   `service_type` varchar(20) NOT NULL,
-  `car_problem` text NOT NULL,
+  `car_problem` varchar(100) NOT NULL,
   `request_date` datetime NOT NULL,
   `completion_date` datetime NOT NULL,
   `client_id` int(11) NOT NULL,
   `service_id` int(11) NOT NULL,
-  `cost_id` int(11) NOT NULL
+  `cost_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `service_request`
 --
 
-INSERT INTO `service_request` (`request_id`, `car_model`, `car_brand`, `car_reg_num`, `service_type`, `car_problem`, `request_date`, `completion_date`, `client_id`, `service_id`, `cost_id`) VALUES
-(1129, 'sads', 'asa', 'asa', 'asa', '0', '2023-10-05 22:00:05', '0000-00-00 00:00:00', 1, 1, 1),
-(1130, 'dsa', 'sads', 'asds', 'asd', '0', '2023-10-05 22:00:28', '0000-00-00 00:00:00', 1, 1, 1),
-(1132, 'jer', 'jer', 'jer', 'jer', '0', '2023-10-05 22:00:57', '0000-00-00 00:00:00', 1, 1, 1),
-(1133, 'as', 'sa', 'as', 'asdas', '0', '2023-10-05 22:02:33', '0000-00-00 00:00:00', 1, 1, 1),
-(1134, 'janrie', 'jer', '12122', 'dsaas', '0', '2023-10-05 22:05:33', '0000-00-00 00:00:00', 1, 1, 1);
+INSERT INTO `service_request` (`request_id`, `car_model`, `car_brand`, `car_reg_num`, `service_type`, `car_problem`, `request_date`, `completion_date`, `client_id`, `service_id`, `cost_id`, `status`) VALUES
+(1135, 'car', 'car', '12312', '123', '123', '2023-10-06 19:26:25', '0000-00-00 00:00:00', 21, 21, 21, 1),
+(1136, 'Laptop', '123', '123', '123', '123', '2023-10-06 21:46:07', '0000-00-00 00:00:00', 21, 21, 21, 1),
+(1137, 'Velocity X7', 'vios', 'ABC-1234', 'Car Detailing', '0', '2023-10-07 10:00:06', '0000-00-00 00:00:00', 21, 21, 21, 0),
+(1138, 'Vios', 'Toyota', '123', 'Cleaning', '0', '2023-10-07 10:24:45', '0000-00-00 00:00:00', 21, 21, 21, 1),
+(1139, 'Vios', 'Toyota', '123', 'Cleaning', '0', '2023-10-07 13:39:59', '0000-00-00 00:00:00', 21, 21, 21, 1);
 
 -- --------------------------------------------------------
 
@@ -192,6 +245,27 @@ CREATE TABLE `sms` (
   `client_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `status_id` int(11) NOT NULL,
+  `status_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`status_id`, `status_name`) VALUES
+(1, 'pending'),
+(2, 'ongoing'),
+(3, 'rejected'),
+(4, 'completed');
+
 --
 -- Indexes for dumped tables
 --
@@ -200,15 +274,13 @@ CREATE TABLE `sms` (
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`admin_id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `client`
 --
 ALTER TABLE `client`
-  ADD PRIMARY KEY (`client_id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`client_id`);
 
 --
 -- Indexes for table `feedback`
@@ -229,8 +301,7 @@ ALTER TABLE `job_assignment`
 -- Indexes for table `mechanic`
 --
 ALTER TABLE `mechanic`
-  ADD PRIMARY KEY (`mechanic_id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`mechanic_id`);
 
 --
 -- Indexes for table `services_offer`
@@ -242,10 +313,7 @@ ALTER TABLE `services_offer`
 -- Indexes for table `service_cost`
 --
 ALTER TABLE `service_cost`
-  ADD PRIMARY KEY (`cost_id`),
-  ADD KEY `service_id` (`service_id`),
-  ADD KEY `client_id` (`client_id`),
-  ADD KEY `mechanic_id` (`mechanic_id`);
+  ADD PRIMARY KEY (`cost_id`);
 
 --
 -- Indexes for table `service_history`
@@ -274,6 +342,12 @@ ALTER TABLE `sms`
   ADD KEY `client_id` (`client_id`);
 
 --
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`status_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -281,13 +355,13 @@ ALTER TABLE `sms`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -305,19 +379,19 @@ ALTER TABLE `job_assignment`
 -- AUTO_INCREMENT for table `mechanic`
 --
 ALTER TABLE `mechanic`
-  MODIFY `mechanic_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `mechanic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `services_offer`
 --
 ALTER TABLE `services_offer`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `service_cost`
 --
 ALTER TABLE `service_cost`
-  MODIFY `cost_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cost_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `service_history`
@@ -329,13 +403,19 @@ ALTER TABLE `service_history`
 -- AUTO_INCREMENT for table `service_request`
 --
 ALTER TABLE `service_request`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1135;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1140;
 
 --
 -- AUTO_INCREMENT for table `sms`
 --
 ALTER TABLE `sms`
   MODIFY `notif_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

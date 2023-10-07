@@ -19,7 +19,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="car_reg_num" class="form-label">Car Registered Number</label>
+            <label for="car_reg_num" class="form-label">Registration Number</label>
             <input type="text" class="form-control" id="car_reg_num" name="car_reg_num" required>
         </div>
 

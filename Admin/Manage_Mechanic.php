@@ -7,18 +7,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
     $address = $_POST["address"];
+    $mobile_number = $_POST["mobile_number"];
+
     $mechanic_id = isset($_POST["mechanic_id"]) ? $_POST["mechanic_id"] : null;
 
     if ($mechanic_id) {
         // Update an existing mechanic
-        $sql = "UPDATE mechanic SET fullname = ?, skill = ?, username = ?, password = ?, address = ? WHERE mechanic_id = ?";
+        $sql = "UPDATE mechanic SET fullname = ?, skill = ?, username = ?, password = ?, address = ?, mobile_number = ? WHERE mechanic_id = ?";
         $stmt = mysqli_prepare($con, $sql);
-        mysqli_stmt_bind_param($stmt, "sssssi", $fullname, $skill, $username, $password, $address, $mechanic_id);
+        mysqli_stmt_bind_param($stmt, "sssssi", $fullname, $skill, $username, $password, $address, $mobile_number, $mechanic_id);
     } else {
         // Adding a new Mechanic
-        $sql = "INSERT INTO mechanic (fullname, skill, username, password, address ) VALUES (?, ?, ?, ? ,?)";
+        $sql = "INSERT INTO mechanic (fullname, skill, username, password, address, mobile_number ) VALUES (?, ?, ?, ? ,?, ?)";
         $stmt = mysqli_prepare($con, $sql);
-        mysqli_stmt_bind_param($stmt, "sssss", $fullname, $skill, $username, $password, $address);
+        mysqli_stmt_bind_param($stmt, "ssssss", $fullname, $skill, $username, $password, $address, $mobile_number);
     }
 
     // Execute the prepared statement

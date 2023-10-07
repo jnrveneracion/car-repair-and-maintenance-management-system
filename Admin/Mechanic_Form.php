@@ -44,6 +44,11 @@ if ($mechanic_id) {
         </div>
 
         <div class="mb-3">
+            <label for="mobile_number" class="form-label">Mobile Number</label>
+            <input type="text" class="form-control" id="mobile_number" name="mobile_number" required value="<?php echo isset($row['mobile_number']) ? $row['mobile_number'] : ''; ?>">
+        </div>
+
+        <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username" required value="<?php echo isset($row['username']) ? $row['username'] : ''; ?>">
         </div>

@@ -20,9 +20,9 @@ if (!$result) {
                         <th scope="col">Mechanic ID</th>
                         <th scope="col">Full Name</th>
                         <th scope="col">Address</th>
+                        <th scope="col">Mobile Number</th>
                         <th scope="col">Skill</th>
                         <th scope="col">Username</th>
-                        <th scope="col">Password</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -34,9 +34,10 @@ if (!$result) {
                     <td>' . $row['mechanic_id'] . '</td>
                     <td>' . $row['fullname'] . '</td>
                     <td>' . $row['address'] . '</td>
+                    <td>' . $row['mobile_number'] . '</td>
                     <td>' . $row['skill'] . '</td>
                     <td>' . $row['username'] . '</td>
-                    <td>' . $row['password'] . '</td>
+             
 
                     <td>
                     <a href="Mechanic_Form.php?mechanic_id=' . $row['mechanic_id'] . '" class="btn btn-primary">Edit</a>
