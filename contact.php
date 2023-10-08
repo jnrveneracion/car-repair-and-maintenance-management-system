@@ -37,7 +37,7 @@
                                    </li>
                                    <li class="d-flex align-items-center">
                                         <div class="m-1"><img src="Assets/mail-icon.png" width="40" alt=""></div>
-                                        <div>crrms@gmail.com</div>
+                                        <div>vrrms@gmail.com</div>
                                    </li>
                               </ul>
                          </div>

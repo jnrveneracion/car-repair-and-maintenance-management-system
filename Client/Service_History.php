@@ -1,17 +1,17 @@
 <?php
-include('../connection.php');
+     include('../connection.php');
 
-$query = "
-SELECT sr.request_id, sr.car_brand, sr.car_model, sr.car_reg_num, sr.service_type, sr.status
-FROM service_request sr
+     $query = "
+     SELECT sr.request_id, sr.car_brand, sr.car_model, sr.car_reg_num, sr.service_type, sr.status
+     FROM service_request sr
 
-";
+     ";
 
-$result = mysqli_query($con, $query);
+     $result = mysqli_query($con, $query);
 
-if (!$result) {
-    die("Query failed: " . mysqli_error($con));
-}
+     if (!$result) {
+     die("Query failed: " . mysqli_error($con));
+     }
 ?>
 
 <!DOCTYPE html>
@@ -117,5 +117,6 @@ if (!$result) {
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 </body>
 </html>
+
 
 

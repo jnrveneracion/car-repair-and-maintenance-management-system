@@ -75,9 +75,7 @@
  
 </style>
 
-
-
-<div style="width: 100%; position: sticky; top: 0;">
+<div style="width: 100%; position: sticky; top: 0; z-index: 10;">
      <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
           <div class="container-fluid d-flex justify-content-between" id="navbar-section">
                <a class="navbar-brand" href="#"><img src="Assets/navbar-logo.png" width="250" alt=""></a>
@@ -114,9 +112,10 @@
                                    <div class="collapse collapse position-absolute" id="menu">
                                         <div class="card card-body">
                                              <div id="options" class="">
+                                                  <a class="user-menu" href="Client/service-request-form.php">Service Request</a>
                                                   <a class="user-menu" href="Client/Service_History.php">My Service Request</a>
                                                   <a class="user-menu" href="Client/view-message.php">My Messages</a>
-                                                  <a class="user-menu" href="Client/my-account.php">My Account</a>
+                                                  <a class="user-menu" href="Client/my-account.php">My Account</a> 
                                                   <a class="logout-btn" href="Client/Logout.php">Logout</a> 
                                              </div>
                                         </div>
