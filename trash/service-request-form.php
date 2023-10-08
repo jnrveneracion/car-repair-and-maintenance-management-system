@@ -1,5 +1,4 @@
 <?php
-  require('Login_Submit.php');
 
   require('../connection.php');
     

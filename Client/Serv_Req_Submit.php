@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = mysqli_prepare($con, $query);
     // mysqli_stmt_bind_param($stmt, 'ssssiiii', $car_model, $car_brand, $car_reg_num, $service_type, $car_problem, $client_id, $service_id, $cost_id);
-    mysqli_stmt_bind_param($stmt, 'sssssi', $car_model, $car_brand, $car_reg_num, $service_type, $car_problem, $client_id);
+    mysqli_stmt_bind_param($stmt, 'ssssii', $car_model, $car_brand, $car_reg_num, $service_type, $car_problem, $client_id);
 
     if (mysqli_stmt_execute($stmt)) {
         // Data inserted successfully
