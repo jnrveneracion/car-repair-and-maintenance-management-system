@@ -13,16 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['request_id'])) {
     $comment = $_POST['comment'];
     $assigned_mechanic = $_POST['assigned_mechanic'];
 
+    // Set the service_status_name_id to 1
+    $service_status_id = 1;
 
     // Insert the data into the service_cost table
-    $insert_sql = "INSERT INTO service_cost (service_cost, labor_cost, parts_cost, total_cost, comment, request_id, mechanic_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $insert_sql = "INSERT INTO service_cost (service_cost, labor_cost, parts_cost, total_cost, comment, request_id, mechanic_id, service_status_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Prepare the SQL statement
     $stmt = mysqli_prepare($con, $insert_sql);
 
     if ($stmt) {
         // Bind the parameters
-       mysqli_stmt_bind_param($stmt, 'ssisiii', $service_cost, $labor_cost, $parts_cost, $total_cost, $comment, $request_id, $assigned_mechanic); //Ang pagkasunod sunod dito ay makakaapekto sa pag display sa database so dapat sundin ung format sa database dahil pwede mag switch ung data
+        mysqli_stmt_bind_param($stmt, 'ssisiiii', $service_cost, $labor_cost, $parts_cost, $total_cost, $comment, $request_id, $assigned_mechanic, $service_status_id);
 
         // Execute the statement
         if (mysqli_stmt_execute($stmt)) {

@@ -137,11 +137,25 @@ if (mysqli_num_rows($serviceCostResult) > 0) {
     echo '<th scope="row">Service Status</th>';
     echo '<td>' . ($serviceCostRow['service_status_id'] == '1' ? 'Pending' : $serviceCostRow['service_status_name']) . '</td>';
     
- 
+    
     echo '</tr>';
 
     echo '</tbody>';
     echo '</table>';
+
+      // Display the "Update Service Status" section
+      echo '<h3>Update Service Status</h3>';
+      echo '<form method="post" action="Update_Service_Status.php">';
+        echo '<input type="hidden" name="request_id" value="' . $request_id . '">';
+        echo '<label for="new_status">New Status:</label>';
+        echo '<select name="new_status" id="new_status">';
+            echo '<option value="1">Pending</option>';
+            echo '<option value="2">Ongoing</option>';
+            echo '<option value="3">Rejected</option>';
+            echo '<option value="4">Completed</option>';
+        echo '</select>';
+        echo '<button type="submit" name="update_status">Update</button>';
+      echo '</form>';
 } else {
     echo "Wait for service cost for this request.";
 }
@@ -159,27 +173,5 @@ mysqli_free_result($serviceCostResult);
  mysqli_close($con);
  ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="../CSS/style.css">
-     <link rel="stylesheet" href="../CSS/bg-style-a.css">
-    <title>My Service Request</title>
-</head>
-<body>
-    <?php include "../common/navbar-for-folder.php" ?>
 
-    <h1>My service request</h1>
-
-    <?php include "../common/footer-for-folder.php" ?>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
-</body>
-</html>
 

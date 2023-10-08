@@ -14,7 +14,7 @@ if (!$result) {
 }
 ?>
 
-<h3>My Service History</h3>
+<h3>My Service Request</h3>
 <table class="table">
     <thead>
         <tr>

@@ -1,4 +1,4 @@
-<?php
+<?php 
     include('../connection.php');
 ?>
 <h3>My Service Request</h3>
@@ -16,7 +16,7 @@
       <th scope="col">Total Cost</th>
       <th scope="col">Service Status</th>
 
-      <!-- dapat may view function Dito -->
+      <!-- HINDI NA ATA NEED TONG FILE KASI NASA SERVICE HISTORY NA SYA-->
     </tr>
   </thead>
   <tbody>
