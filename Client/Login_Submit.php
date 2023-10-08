@@ -15,7 +15,7 @@
         if ($password === $stored_password) {
             // Passwords match, login successful
             $_SESSION['client_id'] = $client_id; //Here is the Session
-            $_SESSION['fullname'] = $fullname; //Here is the Session
+            $_SESSION['fullname'] = $fullname; //Here is the Session | Pagnakaerror dahil to sa fullname na nickname dapat
             
 
             header("Location: ../index.php"); // Redirect to client land page | index.php | Pag nasa labas ung file ../ 
