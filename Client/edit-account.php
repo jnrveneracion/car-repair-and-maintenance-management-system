@@ -14,7 +14,7 @@ include('../connection.php');
      <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="../CSS/style.css">
      <link rel="stylesheet" href="../CSS/bg-style-a.css">
-    <title>My Message</title>
+    <title>My Account</title>
     <style>
         .head-section-txt {
             width: fit-content;
@@ -32,8 +32,9 @@ include('../connection.php');
           <div class="text-white section"  style="height: 400px;">
                <div>
                     <div>
-                        <div class="head-section-txt">MY MESSAGE VIEW</div>
-                        <h1>View message</h1>
+                        <div class="head-section-txt">MY ACCOUNT</div>
+                        <h1>edit account details</h1>
+                        <a href="#" class="text-white">SAVE CHANGES</a>
                     </div>
                </div>
           </div>
