@@ -1,9 +1,7 @@
-<!-- Dito makikita ung ongoing jobs. maglagay status? -->
-
 <?php
     include('../connection.php');
 ?>
-<h3>On Going Jobs</h3>
+<h3>Complete Jobs</h3>
 <table class="table">
   <thead>
     <tr>

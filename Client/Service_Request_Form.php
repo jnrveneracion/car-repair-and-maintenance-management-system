@@ -1,5 +1,17 @@
 <?php
     require('../connection.php');
+    
+    // Retrieve service types from the services_offer table
+    $sql = "SELECT DISTINCT type FROM services_offer";
+    $result = mysqli_query($con, $sql);
+
+    // Check if there are any service types
+    $serviceTypes = [];
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $serviceTypes[] = $row['type'];
+        }
+    }
 ?>
 
 <head>
@@ -25,7 +37,15 @@
 
         <div class="mb-3">
             <label for="service_type" class="form-label">Service Type</label>
-            <input type="text" class="form-control" id="service_type" name="service_type" required>
+            <select class="form-select" id="service_type" name="service_type" required>
+                <option value="" disabled selected>Select Service Type</option>
+                <?php
+                    // Populate the dropdown list with service types
+                    foreach ($serviceTypes as $type) {
+                        echo "<option value='$type'>$type</option>";
+                    }
+                ?>
+            </select>
         </div>
 
         <div class="mb-3">

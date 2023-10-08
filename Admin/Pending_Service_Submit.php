@@ -10,21 +10,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['request_id'])) {
     $labor_cost = $_POST['labor_cost'];
     $parts_cost = $_POST['parts_cost'];
     $total_cost = $_POST['total_cost'];
-    $assigned_mechanic = $_POST['assigned_mechanic'];
     $comment = $_POST['comment'];
+    $assigned_mechanic = $_POST['assigned_mechanic'];
+
 
     // Insert the data into the service_cost table
-    $insert_sql = "INSERT INTO service_cost (service_type, labor_cost, parts_cost, comment, request_id, mechanic_id) VALUES (?, ?, ?, ?, ?, ?)";
-    
-    //Palitan. Dapat dito ung sa dropdownlist ng mechanic or tanggalin na to????? nalito ako bigla sa foreign keys
-    $mechanic_id = '17'; 
+    $insert_sql = "INSERT INTO service_cost (service_cost, labor_cost, parts_cost, total_cost, comment, request_id, mechanic_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     // Prepare the SQL statement
     $stmt = mysqli_prepare($con, $insert_sql);
 
     if ($stmt) {
         // Bind the parameters
-        mysqli_stmt_bind_param($stmt, 'ssssii', $service_cost, $labor_cost, $parts_cost, $comment, $request_id, $mechanic_id);
+       mysqli_stmt_bind_param($stmt, 'ssisiii', $service_cost, $labor_cost, $parts_cost, $total_cost, $comment, $request_id, $assigned_mechanic); //Ang pagkasunod sunod dito ay makakaapekto sa pag display sa database so dapat sundin ung format sa database dahil pwede mag switch ung data
 
         // Execute the statement
         if (mysqli_stmt_execute($stmt)) {

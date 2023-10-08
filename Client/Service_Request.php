@@ -1,9 +1,7 @@
-<!-- Dito makikita ung ongoing jobs. maglagay status? -->
-
 <?php
     include('../connection.php');
 ?>
-<h3>On Going Jobs</h3>
+<h3>My Service Request</h3>
 <table class="table">
   <thead>
     <tr>
@@ -13,6 +11,9 @@
       <th scope="col">Car Brand</th>
       <th scope="col">Service Type</th>
       <th scope="col">Date</th>
+      <th scope="col">Mechanic Name</th>
+      <th scope="col">Request Status</th>
+      <th scope="col">Total Cost</th>
       <th scope="col">Service Status</th>
 
       <!-- dapat may view function Dito -->

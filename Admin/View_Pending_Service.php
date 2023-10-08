@@ -1,4 +1,3 @@
-<!-- This page adds the service cost  Services Cost (Add service charge, extra part fees)  Gumawa ng form na ilalagay ang Services Cost   -->
 <?php
 include('../connection.php');
 
@@ -16,8 +15,8 @@ if (isset($_GET['request_id'])) {
 
     // Check if there is a row with the specified request ID
     if (mysqli_num_rows($result) > 0) {
-        echo '<h2>View Pending Request</h2>';
-        echo '<h3>Pending Request Data</h3>';
+        echo '<h2>View Pending Service</h2>';
+        echo '<h3>Pending Service Data</h3>';
 
         echo '<table class="table">';
         echo '<thead>';
@@ -63,7 +62,7 @@ if (isset($_GET['request_id'])) {
         echo '</tbody>';
         echo '</table>';
 
-        //The Service Cost Form is here
+        // The Service Cost Form is here
         echo '<form method="POST" action="Pending_Service_Submit.php?request_id=' . $request_id . '">';
         echo '<div class="mb-3">';
         echo '<label for="service_cost" class="form-label">Service Cost</label>';
@@ -71,40 +70,61 @@ if (isset($_GET['request_id'])) {
         echo '</div>';
 
         echo '<div class="mb-3">';
-            echo '<label for="labor_cost" class="form-label">Labor Cost</label>';
-            echo '<input type="text" class="form-control" id="labor_cost" name="labor_cost" required>';
+        echo '<label for="labor_cost" class="form-label">Labor Cost</label>';
+        echo '<input type="text" class="form-control" id="labor_cost" name="labor_cost" required>';
         echo '</div>';
 
         echo '<div class="mb-3">';
-            echo '<label for="parts_cost" class="form-label">Parts Cost</label>';
-            echo '<input type="text" class="form-control" id="parts_cost" name="parts_cost" required>';
+        echo '<label for="parts_cost" class="form-label">Parts Cost</label>';
+        echo '<input type="text" class="form-control" id="parts_cost" name="parts_cost" required>';
         echo '</div>';
 
         echo '<div class="mb-3">';
-            echo '<label for="total_cost" class="form-label">Total Cost</label>';
-            echo '<input type="text" class="form-control" id="total_cost" name="total_cost" required>';
+        echo '<label for="total_cost" class="form-label">Total Cost</label>';
+        echo '<input type="text" class="form-control" id="total_cost" name="total_cost" required>';
+        echo '</div>';
+
+        // Retrieve mechanic names from the mechanic table
+        $sqlMechanics = "SELECT mechanic_id, fullname FROM mechanic";
+        $resultMechanics = mysqli_query($con, $sqlMechanics);
+
+        if (!$resultMechanics) {
+            die("Query failed: " . mysqli_error($con));
+        }
+
+        // Check if there are any mechanics
+        $mechanics = [];
+        if (mysqli_num_rows($resultMechanics) > 0) {
+            while ($mechanicRow = mysqli_fetch_assoc($resultMechanics)) {
+                $mechanics[$mechanicRow['mechanic_id']] = $mechanicRow['fullname'];
+            }
+        }
+
+        echo '<div class="mb-3">';
+        echo '<label for="assigned_mechanic" class="form-label">Assigned Mechanic</label>';
+        echo '<select class="form-select" id="assigned_mechanic" name="assigned_mechanic" required>';
+        echo '<option value="" disabled selected>Select Assigned Mechanic</option>';
+        foreach ($mechanics as $mechanicId => $mechanicName) {
+            echo "<option value='$mechanicId'>$mechanicName</option>";
+        }
+        echo '</select>';
         echo '</div>';
 
         echo '<div class="mb-3">';
-            echo '<label for="assigned_mechanic" class="form-label">Assigned Mechanic</label>';
-            echo '<input type="text" class="form-control" id="assigned_mechanic" name="assigned_mechanic" required>';
+        echo '<label for="comment" class="form-label">Comment</label>';
+        echo '<input type="text" class="form-control" id="comment" name="comment" required>';
         echo '</div>';
 
-        echo '<div class="mb-3">';
-            echo '<label for="comment" class="form-label">Comment</label>';
-            echo '<input type="text" class="form-control" id="comment" name="comment" required>';
-        echo '</div>';
-
-        
         echo '<button type="submit" class="btn btn-primary">Submit</button>';
 
         echo '</form>';
-        //Forms ends here
+        // Forms end here
 
     } else {
         echo "No records found for the specified request ID.";
     }
 
+    mysqli_free_result($resultMechanics);
     mysqli_free_result($result);
 } else {
     echo "Request ID not specified.";
