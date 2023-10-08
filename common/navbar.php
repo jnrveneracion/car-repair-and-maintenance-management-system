@@ -33,7 +33,50 @@
      .navbar-toggler {
           margin: 0px 30px;
      }
+
+     .welcome-txt {
+          color: color(srgb 0.9702 0.7395 0.3452);
+          text-transform: uppercase;
+          margin: 0px 30px;
+     }
+
+     #options {
+          display: grid;
+     }
+
+     .card.card-body {
+          border-radius: 0px;
+          border: 3px solid black;
+     }
+
+     .user-menu {
+          text-decoration: none;
+          color: white;
+          background-color: color(srgb 0.2706 0.7121 0.9729);
+          padding: 6px 20px;
+          margin: 2px 0px;
+     }
+
+     .logout-btn {
+          color: color(srgb 0.2706 0.7121 0.9729);
+          text-decoration: none;
+          background-color: black;
+          border-radius: 20px;
+          padding: 5px 10px;
+          margin-top: 15px !important;
+          width: 100px;
+          margin: 0 auto;
+     }
+
+     .user-menu:hover, .logout-btn:hover {
+          color: gray;
+     }
+
+ 
 </style>
+
+
+
 <div style="width: 100%; position: sticky; top: 0;">
      <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
           <div class="container-fluid d-flex justify-content-between" id="navbar-section">
@@ -56,12 +99,39 @@
                          <li class="nav-item">
                               <a class="nav-link" href="contact.php">Contact</a>
                          </li>
-                         <li class="nav-item">
-                              <a class="nav-link yellow-btn" href="Client/Login.php">Sign In</a>
-                         </li>
-                         <li class="nav-item">
-                              <a class="nav-link yellow-btn" href="Client/Client_Register.php">Register</a>
-                         </li>
+
+                         <?php
+                              session_start(); // Start the session
+
+                              if (isset($_SESSION['fullname'])) {
+                              // If the 'fullname' session variable is set, display a welcome message
+                              echo '
+                                   <div class="user-menu-btn">
+                                   <a class="btn" data-bs-toggle="collapse" href="#menu" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                        <h6 class="welcome-txt"> Welcome! ' . $_SESSION['fullname'] . '</h6>
+                                   </a>
+                                   <div class="collapse collapse position-absolute" id="menu">
+                                        <div class="card card-body">
+                                             <div id="options" class="">
+                                                  <a class="user-menu" href="#">My Service Request</a>
+                                                  <a class="user-menu" href="#">My Messages</a>
+                                                  <a class="user-menu" href="#">My Account</a>
+                                                  <a class="logout-btn" href="">Logout</a> 
+                                             </div>
+                                        </div>
+                                   </div>
+                                   </div>';
+
+                              } else {
+                              // If the 'fullname' session variable is not set, display "Sign In" and "Register" links
+                              echo '<li class="nav-item">
+                                        <a class="nav-link yellow-btn" href="Client/Login.php">Sign In</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link yellow-btn" href="Client/Client_Register.php">Register</a>
+                                        </li>';
+                              }
+                         ?>
                     </ul>
                </div>
           </div>

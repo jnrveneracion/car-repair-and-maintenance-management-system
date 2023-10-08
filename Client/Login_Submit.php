@@ -16,6 +16,8 @@
             // Passwords match, login successful
             $_SESSION['client_id'] = $client_id;
             $_SESSION['fullname'] = $fullname;
+            
+
             header("Location: ../index.php"); // Redirect to client land page | index.php | Pag nasa labas ung file ../ 
             exit();
         } else {
