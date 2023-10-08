@@ -14,8 +14,8 @@
 
         if ($password === $stored_password) {
             // Passwords match, login successful
-            $_SESSION['client_id'] = $client_id;
-            $_SESSION['fullname'] = $fullname;
+            $_SESSION['client_id'] = $client_id; //Here is the Session
+            $_SESSION['fullname'] = $fullname; //Here is the Session
             
 
             header("Location: ../index.php"); // Redirect to client land page | index.php | Pag nasa labas ung file ../ 

@@ -12,6 +12,9 @@
             $serviceTypes[] = $row['type'];
         }
     }
+
+    // Retrieve the client_id from the session
+    $client_id = $_SESSION['client_id'];
 ?>
 
 <head>
@@ -20,6 +23,7 @@
 <body>
     <h1>Service Request Form</h1>
     <form method="POST" action="Serv_Req_Submit.php">
+    <input type="hidden" name="client_id" value="<?php echo $client_id; ?>"> <!-- hidden input field -->
         <div class="mb-3">
             <label for="car_model" class="form-label">Car Model</label>
             <input type="text" class="form-control" id="car_model" name="car_model" required>

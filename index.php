@@ -48,7 +48,8 @@
                          <div class="col-12">
                               <div class="m-2">
                                    <p>Got a problem with your car? We got you we offer  different service that you probably need.</p>
-                                   <a href="" class="yellow-btn">BOOK NOW!</a>
+                                   <!-- kapag nasa loob ng folder is no need na ng ../ -->
+                                   <a href="Client/Service_Request_Form.php" class="yellow-btn">BOOK NOW!</a> 
                               </div>
                          </div>
                     </div>
