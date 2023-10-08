@@ -50,6 +50,12 @@
             min-width: 200px;
             overflow: scroll;
             margin:  0 auto;
+            width: 450px;
+        }
+
+        a {
+          text-decoration: none;
+          color: white;
         }
     </style>
 </head>
@@ -60,7 +66,7 @@
           <div class="text-white section">
                <div>
                     <div>
-                        <div class="head-section-txt">MY SERVICE REQUEST</div>
+                        <a href="Service_History.php"><div class="head-section-txt">MY SERVICE REQUEST</div></a>
                     </div>
                     <div style="padding: 50px 0px;;">
                         <div class="table-section">
