@@ -1,5 +1,22 @@
 <?php
   require('Login_Submit.php');
+
+  require('../connection.php');
+    
+  // Retrieve service types from the services_offer table
+  $sql = "SELECT DISTINCT type FROM services_offer";
+  $result = mysqli_query($con, $sql);
+
+  // Check if there are any service types
+  $serviceTypes = [];
+  if ($result) {
+      while ($row = mysqli_fetch_assoc($result)) {
+          $serviceTypes[] = $row['type'];
+      }
+  }
+
+  // Retrieve the client_id from the session
+  $client_id = $_SESSION['client_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,33 +63,36 @@
                     <hr style="color: white; opacity: 1;">
                </div>
                     <div>
-                         <form class="row">
-                              <div class="col-lg-6 col-12">
-                                   <div class="mb-3 d-grid">
+                         <form class="row" method="POST" action="Serv_Req_Submit.php">
+                              <div class="col-12">
+                                   <input type="hidden" name="client_id" value="<?php echo $client_id; ?>">
+                                   <!-- <div class="mb-3 d-grid">
                                         <label for="ownerName" class="service-label" id="name">Owner Name:</label>
                                         <input type="text" aria-label="Owner Name" id="ownerName" name="ownerName">
+                                   </div> -->
+                                   <div class="mb-3 d-grid">
+                                        <label for="car_brand" class="service-label" id="name">Car Brand:</label>
+                                        <input type="text" aria-label="Car Brand" id="car_brand" name="car_brand" required>
                                    </div>
                                    <div class="mb-3 d-grid">
-                                        <label for="carBrand" class="service-label" id="name">Car Brand:</label>
-                                        <input type="text" aria-label="Car Brand" id="carBrand" name="carBrand">
+                                        <label for="service_type" class="service-label" id="name">Service Type:</label>
+                                        <select class="form-select" id="service_type" name="service_type" required>
+                                        <option value="" disabled selected>Select Service Type</option>
+                                        <?php
+                                             // Populate the dropdown list with service types
+                                             foreach ($serviceTypes as $type) {
+                                             echo "<option value='$type'>$type</option>";
+                                             }
+                                        ?>
+                                        </select>
                                    </div>
                                    <div class="mb-3 d-grid">
-                                        <label for="serviceType" class="service-label" id="name">Service Type:</label>
-                                        <input type="text" aria-label="Service Type" id="serviceType" name="serviceType">
+                                        <label for="car_model" class="service-label" id="name">Car Model:</label>
+                                        <input type="text" aria-label="Car Model" id="car_model" name="car_model">
                                    </div>
                                    <div class="mb-3 d-grid">
-                                        <label for="contactNumber" class="service-label" id="name">Contact No.:</label>
-                                        <input type="text" class="input-number-only" aria-label="Contact No." id="contactNumber" name="contactNumber">
-                                   </div>
-                              </div>
-                              <div class="col-lg-6 col-12">
-                                   <div class="mb-3 d-grid">
-                                        <label for="carModel" class="service-label" id="name">Car Model:</label>
-                                        <input type="text" aria-label="Car Model" id="carModel" name="carModel">
-                                   </div>
-                                   <div class="mb-3 d-grid">
-                                        <label for="registrationNumber" class="service-label" id="name">Car Registration No.:</label>
-                                        <input type="text" aria-label="Car Registration No." id="registrationNumber" name="registrationNumber">
+                                        <label for="car_reg_num" class="service-label" id="name">Car Registration No.:</label>
+                                        <input type="text" aria-label="Car Registration No." id="car_reg_num" name="car_reg_num">
                                    </div>
                                    <div class="d-flex justify-content-center">
                                         <button type="submit" class="btn submit-service-btn">Submit</button>
