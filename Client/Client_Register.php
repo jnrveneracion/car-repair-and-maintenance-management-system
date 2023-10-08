@@ -1,5 +1,5 @@
 <?php
-    session_start(); // Start the session if not already started
+    //session_start(); // Start the session if not already started
 
     require('../connection.php'); 
 

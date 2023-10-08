@@ -96,7 +96,8 @@
                               <a class="nav-link" href="../contact.php">Contact</a>
                          </li>
                          <?php
-                              session_start(); // Start the session
+                              //session_start(); // Start the session
+                              //include('../connection.php');
 
                               if (isset($_SESSION['fullname'])) {
                               // If the 'fullname' session variable is set, display a welcome message
@@ -108,7 +109,7 @@
                                   <div class="collapse position-absolute" id="menu1">
                                       <div class="card card-body">
                                           <div id="options" class="">
-                                              <a class="user-menu" href="../Client/View_Service_History.php">My Service Request</a>
+                                              <a class="user-menu" href="../Client/Service_History.php">My Service Request</a>
                                               <a class="user-menu" href="../Client/view-message.php">My Messages</a>
                                               <a class="user-menu" href="#">My Account</a>
                                               <a class="logout-btn" href="">Logout</a> 
