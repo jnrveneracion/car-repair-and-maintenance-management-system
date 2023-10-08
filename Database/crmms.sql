@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2023 at 08:09 AM
+-- Generation Time: Oct 08, 2023 at 06:16 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -66,7 +66,13 @@ INSERT INTO `client` (`client_id`, `fullname`, `email`, `mobile_number`, `addres
 (19, 'janrie', 'po@gmail.com', 23232, '123', 'janrie', '123'),
 (20, 'Chaz', 'chazpascual@yahoo.com', 123, 'sdasd', 'chazz', '123'),
 (21, 'jericho empleo', 'po@gmail.com', 23232, 'sadad', '123', '123'),
-(23, 'Janrie Veneracion', 'janrie@gmail.com', 123, 'Calocan', 'Janrie', '123');
+(23, 'Janrie Veneracion', 'janrie@gmail.com', 123, 'Calocan', 'Janrie', '123'),
+(24, 'jericho empleo', 'po@gmail.com', 23232, 'sadad', 'jericho', '123'),
+(25, 'Levi Taguro', 'admin@gmail.com', 123, '123', 'allen', '123'),
+(26, 'Levi Taguro', 'levi@gmail.combc', 123, '123', 'allen', '123'),
+(27, 'Luffy D. Monkey', 'Luffy@gmail.com', 123, 'East Blue', 'Luffy', '123'),
+(28, 'Taylor Swift', 'taylorswift@gmail.com', 123, 'Manila', 'Taylor', '123'),
+(29, 'Raiden Shogun', 'raidenshogun@gmail.com', 123, 'Inazuma', 'Ei', '123');
 
 -- --------------------------------------------------------
 
@@ -148,17 +154,8 @@ CREATE TABLE `services_offer` (
 --
 
 INSERT INTO `services_offer` (`service_id`, `service_name`, `description`, `type`, `status`) VALUES
-(11, 'lamp', 'dsasa', 'sada', '0'),
-(12, 'dsa', 'sadsa', 'dasdas', '0'),
-(13, 'dsa', 'sadsa', 'dasdas', '0'),
-(14, 'charge2', 'asd', 'asdadssa', '0'),
-(15, 'cand', 'sadsa', 'asda', '0'),
-(16, 'sm,art', 'asdas', 'asdsa', '0'),
-(17, 'ballpen2222', 'aaaaaaaaa', 'asdas', '0'),
-(18, 'sandy', 'sadsad', 'sada', '0'),
-(19, '', 'sdas', 'as', '0'),
-(20, '', 'sda', 'as', 'active'),
-(21, '', 'sadsada', 'Cleaning', 'Active');
+(22, '', 'sample', 'Paint', 'Active'),
+(23, '', 'sample', 'Engine Repair', 'Active');
 
 -- --------------------------------------------------------
 
@@ -168,22 +165,24 @@ INSERT INTO `services_offer` (`service_id`, `service_name`, `description`, `type
 
 CREATE TABLE `service_cost` (
   `cost_id` int(11) NOT NULL,
-  `service_type` varchar(30) NOT NULL,
+  `service_cost` decimal(10,2) NOT NULL,
   `labor_cost` decimal(10,2) NOT NULL,
   `parts_cost` decimal(10,2) NOT NULL,
-  `total_cost` decimal(11,2) NOT NULL,
-  `comment` text NOT NULL,
+  `total_cost` decimal(10,2) NOT NULL,
+  `comment` varchar(100) NOT NULL,
   `request_id` int(11) NOT NULL,
-  `mechanic_id` int(11) NOT NULL
+  `mechanic_id` int(11) NOT NULL,
+  `service_status_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `service_cost`
 --
 
-INSERT INTO `service_cost` (`cost_id`, `service_type`, `labor_cost`, `parts_cost`, `total_cost`, `comment`, `request_id`, `mechanic_id`) VALUES
-(1, '1212', '11111.00', '1212.00', '0.00', '123', 1138, 17),
-(2, '1000', '200.00', '0.00', '0.00', 'Assigned already', 1139, 17);
+INSERT INTO `service_cost` (`cost_id`, `service_cost`, `labor_cost`, `parts_cost`, `total_cost`, `comment`, `request_id`, `mechanic_id`, `service_status_id`) VALUES
+(19, '1.00', '2.00', '3.00', '6.00', '16', 1142, 11, 0),
+(22, '1.00', '2.00', '3.00', '100.00', '121', 1144, 11, 0),
+(24, '999.00', '99.00', '99.00', '999.00', '999', 1145, 5, 3);
 
 -- --------------------------------------------------------
 
@@ -226,11 +225,35 @@ CREATE TABLE `service_request` (
 --
 
 INSERT INTO `service_request` (`request_id`, `car_model`, `car_brand`, `car_reg_num`, `service_type`, `car_problem`, `request_date`, `completion_date`, `client_id`, `service_id`, `cost_id`, `status`) VALUES
-(1135, 'car', 'car', '12312', '123', '123', '2023-10-06 19:26:25', '0000-00-00 00:00:00', 21, 21, 21, 1),
-(1136, 'Laptop', '123', '123', '123', '123', '2023-10-06 21:46:07', '0000-00-00 00:00:00', 21, 21, 21, 1),
-(1137, 'Velocity X7', 'vios', 'ABC-1234', 'Car Detailing', '0', '2023-10-07 10:00:06', '0000-00-00 00:00:00', 21, 21, 21, 0),
-(1138, 'Vios', 'Toyota', '123', 'Cleaning', '0', '2023-10-07 10:24:45', '0000-00-00 00:00:00', 21, 21, 21, 1),
-(1139, 'Vios', 'Toyota', '123', 'Cleaning', '0', '2023-10-07 13:39:59', '0000-00-00 00:00:00', 21, 21, 21, 1);
+(1142, 'Jhannex', 'sample', 'sample', 'Engine Repair', '0', '2023-10-08 13:20:30', '0000-00-00 00:00:00', 21, 21, 21, 1),
+(1143, 'Civic', 'Honda', 'ABC123', 'Engine Repair', '0', '2023-10-08 14:41:26', '0000-00-00 00:00:00', 21, 21, 21, 1),
+(1144, 'Accord', 'Toyota', 'XYZ456', 'Paint', '0', '2023-10-08 14:42:10', '0000-00-00 00:00:00', 21, 21, 21, 1),
+(1145, 'VIOS', 'Toyota', '123', 'Cleaning', '0', '2023-10-08 15:35:56', '0000-00-00 00:00:00', 21, 21, 21, 4),
+(1146, 'Camry', 'Toyota', 'DEF789', 'Engine Repair', '0', '2023-10-08 22:49:45', '0000-00-00 00:00:00', 28, 0, 0, 0),
+(1147, 'model', 'brand', '123', 'Paint', '0', '2023-10-08 23:41:10', '0000-00-00 00:00:00', 29, 0, 0, 0),
+(1148, 'janrie', 'janrie', '123', 'Paint', 'janrie', '2023-10-08 23:59:02', '0000-00-00 00:00:00', 29, 0, 0, 0),
+(1149, 'Janrie', 'aa', '123', 'Paint', '0', '2023-10-09 00:15:47', '0000-00-00 00:00:00', 29, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_status`
+--
+
+CREATE TABLE `service_status` (
+  `service_status_id` int(11) NOT NULL,
+  `service_status_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `service_status`
+--
+
+INSERT INTO `service_status` (`service_status_id`, `service_status_name`) VALUES
+(1, 'Pending'),
+(2, 'Ongoing'),
+(3, 'Rejected'),
+(4, 'Completed');
 
 -- --------------------------------------------------------
 
@@ -244,27 +267,6 @@ CREATE TABLE `sms` (
   `message` text NOT NULL,
   `client_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `status`
---
-
-CREATE TABLE `status` (
-  `status_id` int(11) NOT NULL,
-  `status_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `status`
---
-
-INSERT INTO `status` (`status_id`, `status_name`) VALUES
-(1, 'pending'),
-(2, 'ongoing'),
-(3, 'rejected'),
-(4, 'completed');
 
 --
 -- Indexes for dumped tables
@@ -335,17 +337,17 @@ ALTER TABLE `service_request`
   ADD KEY `cost_id` (`cost_id`);
 
 --
+-- Indexes for table `service_status`
+--
+ALTER TABLE `service_status`
+  ADD PRIMARY KEY (`service_status_id`);
+
+--
 -- Indexes for table `sms`
 --
 ALTER TABLE `sms`
   ADD PRIMARY KEY (`notif_id`),
   ADD KEY `client_id` (`client_id`);
-
---
--- Indexes for table `status`
---
-ALTER TABLE `status`
-  ADD PRIMARY KEY (`status_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -361,7 +363,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -385,13 +387,13 @@ ALTER TABLE `mechanic`
 -- AUTO_INCREMENT for table `services_offer`
 --
 ALTER TABLE `services_offer`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `service_cost`
 --
 ALTER TABLE `service_cost`
-  MODIFY `cost_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cost_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `service_history`
@@ -403,19 +405,19 @@ ALTER TABLE `service_history`
 -- AUTO_INCREMENT for table `service_request`
 --
 ALTER TABLE `service_request`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1140;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1150;
+
+--
+-- AUTO_INCREMENT for table `service_status`
+--
+ALTER TABLE `service_status`
+  MODIFY `service_status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sms`
 --
 ALTER TABLE `sms`
   MODIFY `notif_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `status`
---
-ALTER TABLE `status`
-  MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
