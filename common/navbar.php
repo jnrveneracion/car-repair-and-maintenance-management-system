@@ -113,7 +113,7 @@
                                    <div class="collapse collapse position-absolute" id="menu">
                                         <div class="card card-body">
                                              <div id="options" class="">
-                                                  <a class="user-menu" href="#">My Service Request</a>
+                                                  <a class="user-menu" href="Client/View_Service_History.php">My Service Request</a>
                                                   <a class="user-menu" href="#">My Messages</a>
                                                   <a class="user-menu" href="#">My Account</a>
                                                   <a class="logout-btn" href="">Logout</a> 
