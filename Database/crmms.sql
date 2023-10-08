@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2023 at 06:16 PM
+-- Generation Time: Oct 08, 2023 at 06:58 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -32,6 +32,7 @@ CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL,
   `fullname` varchar(50) NOT NULL,
   `username` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -39,8 +40,8 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`admin_id`, `fullname`, `username`, `password`) VALUES
-(1, 'admin', 'admin', 'admin');
+INSERT INTO `admin` (`admin_id`, `fullname`, `username`, `email`, `password`) VALUES
+(1, 'admin', 'admin', 'admin@gmail.com', 'admin');
 
 -- --------------------------------------------------------
 
@@ -115,6 +116,7 @@ CREATE TABLE `mechanic` (
   `fullname` varchar(50) NOT NULL,
   `skill` varchar(100) NOT NULL,
   `username` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL,
   `address` varchar(100) NOT NULL,
   `mobile_number` int(20) NOT NULL
@@ -124,16 +126,8 @@ CREATE TABLE `mechanic` (
 -- Dumping data for table `mechanic`
 --
 
-INSERT INTO `mechanic` (`mechanic_id`, `fullname`, `skill`, `username`, `password`, `address`, `mobile_number`) VALUES
-(5, 'Jer', 'sada', 'sada', 'sadsa', 'Phildsa', 0),
-(6, 'Jer', 'sada', 'dsadsadas', 'sadsa', 'Phildsa', 0),
-(9, 'Jeraaa', 'sada', 'dsadsadasaaaa', 'sadsa', 'Phildsa', 0),
-(10, 'jericho empleo', 'fg', 'fdgfd', '123', 'sadad', 0),
-(11, 'venes', 'sadsa', '123', '123', 'sdadsa', 0),
-(13, 'jericho empleo', 'asdsa', '123sed', 'asdas', 'sadad', 0),
-(15, 'jericho empleo', '12312', '123sed', 'asdas', 'sadad', 0),
-(16, 'jericho empleo1111', '12312', '123sed', 'asdas', 'sadad', 0),
-(17, 'jericho empleo', 'cleaning', '123', '123', 'sadad', 23232);
+INSERT INTO `mechanic` (`mechanic_id`, `fullname`, `skill`, `username`, `email`, `password`, `address`, `mobile_number`) VALUES
+(17, 'jericho empleo', 'cleaning', '123', 'jericho@gmail.com', '123', 'sadad', 23232);
 
 -- --------------------------------------------------------
 
@@ -155,7 +149,8 @@ CREATE TABLE `services_offer` (
 
 INSERT INTO `services_offer` (`service_id`, `service_name`, `description`, `type`, `status`) VALUES
 (22, '', 'sample', 'Paint', 'Active'),
-(23, '', 'sample', 'Engine Repair', 'Active');
+(23, '', 'sample', 'Engine Repair', 'Active'),
+(24, '', '2121', 'Change Oil', 'Active');
 
 -- --------------------------------------------------------
 
@@ -387,7 +382,7 @@ ALTER TABLE `mechanic`
 -- AUTO_INCREMENT for table `services_offer`
 --
 ALTER TABLE `services_offer`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `service_cost`
