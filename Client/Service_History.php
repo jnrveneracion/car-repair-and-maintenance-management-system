@@ -1,5 +1,6 @@
 <?php
 // session_start(); // Start the session
+require ("../connection.php");
 
 // Check if the client is logged in and retrieve the client_id from the session
 if (isset($_SESSION['client_id']) && $_SESSION['role'] == 'client') {

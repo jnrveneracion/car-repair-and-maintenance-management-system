@@ -141,7 +141,7 @@ if (isset($_GET['request_id'])) {
 
                                              echo '<tr>';
                                              echo '<th scope="row">Request Status</th>';
-                                             echo "<td>" . ($row['status'] == 0 ? 'Pending' : 'Confirmed') . "</td>";
+                                             echo "<td>" . ($row['request_status'] == 0 ? 'Pending' : 'Confirmed') . "</td>";
                                              echo '</tr>';
 
 

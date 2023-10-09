@@ -1,11 +1,13 @@
 <?php
      include('../connection.php');
+     
 
      // Assuming you want to display data from the service_request table
-     $query = "SELECT sr.request_id, c.fullname AS client_name, c.mobile_number, c.email, sr.car_brand, sr.car_model, sr.service_type
-               FROM service_request sr
-               INNER JOIN client c ON sr.client_id = c.client_id
-               ";
+   $query = "SELECT sr.request_id, c.fullname AS client_name, c.mobile_number, c.email, sr.car_brand, sr.car_model, sr.service_type
+           FROM service_request sr
+           INNER JOIN client c ON sr.client_id = c.client_id
+           LEFT JOIN service_cost sc ON sr.request_id = sc.request_id
+           WHERE sc.mechanic_id IS NOT NULL";
                // INNER JOIN services_offer so ON sr.service_id = so.service_id
                // tinanggal ko muna to kasi ayaw ma view nung table... may binura kasi ako diba sa service request tb
 

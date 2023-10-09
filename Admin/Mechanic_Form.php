@@ -15,6 +15,7 @@ if ($mechanic_id) {
         $fullname = $row['fullname'];
         $skill = $row['skill'];
         $username = $row['username'];
+        $email = $row['email'];
         $password = $row['password'];
         $address = $row['address'];
     }
@@ -53,13 +54,30 @@ if ($mechanic_id) {
             <input type="text" class="form-control" id="username" name="username" required value="<?php echo isset($row['username']) ? $row['username'] : ''; ?>">
         </div>
 
+        
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" name="email" required value="<?php echo isset($row['email']) ? $row['email'] : ''; ?>">
+        </div>
+
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="text" class="form-control" id="password" name="password" required value="<?php echo isset($row['password']) ? $row['password'] : ''; ?>">
         </div>
 
+        <?php
+        // If in edit mode, include a hidden input field to pass the service_id to Manage_Service_Offer.php
+        if (isset($mechanic_id)) {
+            echo '<input type="hidden" name="edit_mode" value="true">';
+            echo '<input type="hidden" name="mechanic_id" value="' . $mechanic_id . '">';
+        }
+        ?>
+
         
 
-        <button type="submit" class="btn btn-primary"><?php echo isset($mechanic_id) ? : 'Submit'; ?></button>
+        <!-- <button type="submit" class="btn btn-primary"><?php echo isset($mechanic_id) ? : 'Submit'; ?></button> -->
+        <!-- <button type="submit" class="btn btn-primary">   <?php echo isset($mechanic_id) ? 'Save' : 'Save'; ?>   </button> -->
+        <button type="submit" class="btn btn-primary"><?php echo isset($mechanic_id) ? 'Save' : 'Submit'; ?></button>
+
     </form>
 </body>

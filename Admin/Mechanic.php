@@ -19,6 +19,7 @@ if (!$result) {
                     <tr>
                         <th scope="col">Mechanic ID</th>
                         <th scope="col">Full Name</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Address</th>
                         <th scope="col">Mobile Number</th>
                         <th scope="col">Skill</th>
@@ -33,6 +34,7 @@ if (!$result) {
             echo '<tr>
                     <td>' . $row['mechanic_id'] . '</td>
                     <td>' . $row['fullname'] . '</td>
+                    <td>' . $row['email'] . '</td>
                     <td>' . $row['address'] . '</td>
                     <td>' . $row['mobile_number'] . '</td>
                     <td>' . $row['skill'] . '</td>
