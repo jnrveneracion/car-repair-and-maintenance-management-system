@@ -35,12 +35,19 @@
           margin: 5px 0px;
      }
 
-     .side-bar-link-section:hover {
+     .sub-side-bar-link-section {
+          background-color: color(srgb 0.1294 0.2682 0.2997);
+          padding: 10px 20px;
+          margin: 5px 0px;
+          margin-right: 50px;
+     }
+
+     .side-bar-link-section:hover, .sub-side-bar-link-section:hover {
           border: 2px black;
           border-style: solid;
      }
 
-     @media (max-width: 991.98px) {
+     @media (max-width: 1200px) {
           .sidebar {
                transform: translateX(-100%);
                transition: transform 0.3s ease;
@@ -66,19 +73,12 @@
      <div class="position-sticky">
           <div class="list-group list-group-flush mx-3 mt-4">
                <ul class="navbar-nav">
-                    <li class="admin-text"><a href="" class="side-bar-link">VRMMS | DASHBOARD</a></li>
+                    <li class="admin-text"><a href="" class="side-bar-link">VRMMS | MECHANIC</a></li>
                     <hr style="color: white; opacity: 1;">
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Dashboard</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Services Offer</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Mechanics</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Registered Users</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Message</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Service Request</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Service</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Service Cost</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Assign Mechanic</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Service Details</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Service History</a></li>
+                    <a href="Dashboard.php" class="side-bar-link"><li class="side-bar-link-section">Dashboard</li></a>
+                    <a href="Job_Assignment.php" class="side-bar-link"><li class="side-bar-link-section">Job Assignment</li></a>
+                    <a href="Ongoing_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section">Ongoing</li></a>
+                    <a href="Complete_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section">Complete</li></a>
                </ul>
           </div>
      </div>

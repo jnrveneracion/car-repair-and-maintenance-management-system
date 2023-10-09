@@ -1,8 +1,6 @@
 <?php
 // session_start(); // Start the session
 
-include('../connection.php');
-
 // Check if the client is logged in and retrieve the client_id from the session
 if (isset($_SESSION['client_id']) && $_SESSION['role'] == 'client') {
     $client_id = $_SESSION['client_id'];
@@ -71,16 +69,18 @@ if (isset($_SESSION['client_id']) && $_SESSION['role'] == 'client') {
             vertical-align: middle;
         }
 
+
+        .table-section {
+            min-width: 200px;
+            overflow: scroll;
+        }
+
         .btn-a {
             background-color: color(srgb 0.325 0.325 0.325);
             border: none;
             color: white !important;
         }
 
-        .table-section {
-            min-width: 200px;
-            overflow: scroll;
-        }
     </style>
 </head>
 <body>
