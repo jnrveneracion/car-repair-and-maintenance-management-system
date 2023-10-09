@@ -15,6 +15,13 @@ if (isset($_SESSION['client_id'])) {
 
 
 
+// Check if the client_id is set in the session
+if (!isset($_SESSION['client_id'])) {
+    // Handle the case when client_id is not set, such as redirecting to a login page
+    header("Location: login.php");
+    exit;
+}
+
 // Retrieve service types from the services_offer table
 $sql = "SELECT DISTINCT type FROM services_offer";
 $result = mysqli_query($con, $sql);
@@ -30,6 +37,7 @@ if ($result) {
 
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

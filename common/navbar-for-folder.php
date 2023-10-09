@@ -97,7 +97,7 @@
                          </li>
                          <?php
                               //session_start(); // Start the session
-                              //include('../connection.php');
+                              //include('../connection.php'); | Hindi kailangan to
 
                               if (isset($_SESSION['fullname'])) {
                               // If the 'fullname' session variable is set, display a welcome message

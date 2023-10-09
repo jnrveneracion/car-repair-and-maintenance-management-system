@@ -1,3 +1,4 @@
+
 <style>
      #navbar-section {
           background-color: color(srgb 0.0472 0.1883 0.2773);
@@ -99,8 +100,8 @@
                          </li>
 
                          <?php
-                              //session_start(); // Start the session
-                               include('connection.php');
+                              //session_start(); // Start the session | hindi kailangan
+                               include('connection.php'); //Kailangan tong connection
 
                               if (isset($_SESSION['fullname'])) {
                               // If the 'fullname' session variable is set, display a welcome message
