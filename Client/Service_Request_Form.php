@@ -1,21 +1,4 @@
-<?php
-require('../connection.php');
 
-// Retrieve service types from the services_offer table
-$sql = "SELECT DISTINCT type FROM services_offer";
-$result = mysqli_query($con, $sql);
-
-// Check if there are any service types
-$serviceTypes = [];
-if ($result) {
-     while ($row = mysqli_fetch_assoc($result)) {
-          $serviceTypes[] = $row['type'];
-     }
-}
-
-// Retrieve the client_id from the session
-$client_id = $_SESSION['client_id'];
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +40,27 @@ $client_id = $_SESSION['client_id'];
      </head>
 
      <body>
+          <?php
+               require('../connection.php');
+
+               // Retrieve service types from the services_offer table
+               $sql = "SELECT DISTINCT type FROM services_offer";
+               $result = mysqli_query($con, $sql);
+
+               // Check if there are any service types
+               $serviceTypes = [];
+               if ($result) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                         $serviceTypes[] = $row['type'];
+                    }
+               }
+
+               // Retrieve the client_id from the session
+               $client_id = $_SESSION['client_id'];
+          ?>
           <?php include "../common/navbar-for-folder.php" ?>
+
+
 
           <div class="d-flex justify-content-center">
                <div class="request-form-section">
@@ -69,6 +72,7 @@ $client_id = $_SESSION['client_id'];
                     <div>
                          <form method="POST" action="Serv_Req_Submit.php">
                               <input type="hidden" name="client_id" value="<?php echo $client_id; ?>">
+                              <input type="hidden" name="status" value="0">
                               <!-- hidden input field -->
                               <div class="mb-3">
                                    <label for="car_model" class="form-label">Car Model</label>
