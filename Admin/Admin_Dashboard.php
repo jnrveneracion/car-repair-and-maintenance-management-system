@@ -8,11 +8,132 @@
           crossorigin="anonymous">
      <link rel="stylesheet" href="../CSS/style.css">
      <link rel="stylesheet" href="../CSS/bg-style-a.css">
-     <title>Admin</title>
+     <title>Admin | Dashboard</title>
+     <style>
+               .mechanic-section {
+                    margin-top: 0px;
+                    margin-bottom: 100px;
+                    background-color: rgba(0, 0, 0, 0.29);
+                    min-width: 200px;
+                    overflow: scroll;
+                    padding: 30px;
+                    margin-right: 20px;
+                    margin-left: 20px;
+                    width: 850px;
+               }
+
+               .mechanic-head-txt {
+                    margin: 20px;
+                    color: white;
+                    margin-top: 50px;
+                    text-transform: uppercase;
+                    padding: 10px 15px;
+                    background-color: color(srgb 0.0472 0.1883 0.2773);
+                    width: fit-content;
+               }
+
+               .sec-head {
+                    background-color: color(srgb 0.1294 0.2682 0.2997);
+                    color: white;
+                    padding: 10px;
+                    width: fit-content;
+               }
+
+               .tot {
+                    background-color: color(srgb 0.9702 0.7395 0.3452);
+                    padding: 26px 50px;
+                    border-radius: 100%;
+                    font-size: 50px;
+                    color: white;
+               }
+          </style>
 </head>
 <body>
      <?php include "../common/admin-side-nav.php"?>
-
-
+     <div>
+          <div class="row">
+               <div class="col-xl-2 col-0"></div>
+               <div class="col-xl-10 col-12">
+                    <div class="d-flex justify-content-center">
+                         <h3 class="mechanic-head-txt mb-0">Dashboard Overview</h3>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                         <hr style="opacity: 1; color: white; width: 80%;">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                         <div class="mechanic-section">
+                              <div class="row">
+                                   <div class="col-md-6 col-xl-4 col-12 sec">
+                                        <div class="d-flex justify-content-center">
+                                             <div class="m-3">
+                                                  <p class="sec-head">Total Registered User</p>
+                                                  <div class="d-flex justify-content-center">
+                                                       <span class="tot">6</span>
+                                                       <!-- dito mo ilagay yung echo ng php -->
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="col-md-6 col-xl-4 col-12 sec">
+                                        <div class="d-flex justify-content-center">
+                                             <div class="m-3">
+                                                  <p class="sec-head">Total Mechanics</p>
+                                                  <div class="d-flex justify-content-center">
+                                                       <span class="tot">4</span>
+                                                       <!-- dito mo ilagay yung echo ng php -->
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="col-md-6 col-xl-4 col-12 sec">
+                                        <div class="d-flex justify-content-center">
+                                             <div class="m-3">
+                                                  <p class="sec-head">Total Service Request</p>
+                                                  <div class="d-flex justify-content-center">
+                                                       <span class="tot">1</span>
+                                                       <!-- dito mo ilagay yung echo ng php -->
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="col-md-6 col-xl-4 col-12 sec">
+                                        <div class="d-flex justify-content-center">
+                                             <div class="m-3">
+                                                  <p class="sec-head">Total Message</p>
+                                                  <div class="d-flex justify-content-center">
+                                                       <span class="tot">1</span>
+                                                       <!-- dito mo ilagay yung echo ng php -->
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="col-md-6 col-xl-4 col-12 sec">
+                                        <div class="d-flex justify-content-center">
+                                             <div class="m-3">
+                                                  <p class="sec-head">Total New Service Request</p>
+                                                  <div class="d-flex justify-content-center">
+                                                       <span class="tot">1</span>
+                                                       <!-- dito mo ilagay yung echo ng php -->
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="col-md-6 col-xl-4 col-12 sec">
+                                        <div class="d-flex justify-content-center">
+                                             <div class="m-3">
+                                                  <p class="sec-head">Finished Services</p>
+                                                  <div class="d-flex justify-content-center">
+                                                       <span class="tot">1</span>
+                                                       <!-- dito mo ilagay yung echo ng php -->
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
 </body>
 </html>

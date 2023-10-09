@@ -41,9 +41,16 @@
           margin: 5px 0px;
      }
 
-     .side-bar-link-section:hover, .side-bar-link-section-b:hover {
+     .side-bar-link-section:hover, .side-bar-link-section-b:hover, .sub-side-bar-link-section:hover {
           border: 2px black;
           border-style: solid;
+     }
+
+     .sub-side-bar-link-section {
+          background-color: color(srgb 0.1294 0.2682 0.2997);
+          padding: 10px 20px;
+          margin: 5px 0px;
+          margin-right: 50px;
      }
 
      @media (max-width: 1200px) {
