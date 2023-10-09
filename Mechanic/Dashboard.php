@@ -8,7 +8,7 @@
           crossorigin="anonymous">
      <link rel="stylesheet" href="../CSS/style.css">
      <link rel="stylesheet" href="../CSS/bg-style-a.css">
-     <title>Mechanic</title>
+     <title>Mechanic | Dashboard</title>
 </head>
 <body>
      <?php include "../common/mechanic-side-nav.php"?>

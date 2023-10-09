@@ -40,7 +40,7 @@
           border-style: solid;
      }
 
-     @media (max-width: 991.98px) {
+     @media (max-width: 1200px) {
           .sidebar {
                transform: translateX(-100%);
                transition: transform 0.3s ease;
@@ -68,17 +68,10 @@
                <ul class="navbar-nav">
                     <li class="admin-text"><a href="" class="side-bar-link">VRMMS | DASHBOARD</a></li>
                     <hr style="color: white; opacity: 1;">
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Dashboard</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Services Offer</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Mechanics</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Registered Users</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Message</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Service Request</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Service</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Service Cost</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Assign Mechanic</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Service Details</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Service History</a></li>
+                    <li class="side-bar-link-section"><a href="Dashboard.php" class="side-bar-link">Dashboard</a></li>
+                    <li class="side-bar-link-section"><a href="Job_Assignment.php" class="side-bar-link">Job Assignment</a></li>
+                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Ongoing</a></li>
+                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Complete</a></li>
                </ul>
           </div>
      </div>

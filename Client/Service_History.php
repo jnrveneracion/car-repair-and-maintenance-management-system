@@ -2,7 +2,7 @@
      include('../connection.php');
 
      $query = "
-     SELECT sr.request_id, sr.car_brand, sr.car_model, sr.car_reg_num, sr.service_type, sr.status
+     SELECT sr.request_id, sr.car_brand, sr.car_model, sr.car_reg_num, sr.service_type, sr.request_status
      FROM service_request sr
 
      ";
@@ -53,16 +53,18 @@
             vertical-align: middle;
         }
 
+
+        .table-section {
+            min-width: 200px;
+            overflow: scroll;
+        }
+
         .btn-a {
             background-color: color(srgb 0.325 0.325 0.325);
             border: none;
             color: white !important;
         }
 
-        .table-section {
-            min-width: 200px;
-            overflow: scroll;
-        }
     </style>
 </head>
 <body>
