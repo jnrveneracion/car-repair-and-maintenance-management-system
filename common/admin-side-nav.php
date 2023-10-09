@@ -35,12 +35,18 @@
           margin: 5px 0px;
      }
 
-     .side-bar-link-section:hover {
+     .side-bar-link-section-b {
+          background-color: color(srgb 0.0631 0.1294 0.145);
+          padding: 10px 20px;
+          margin: 5px 0px;
+     }
+
+     .side-bar-link-section:hover, .side-bar-link-section-b:hover {
           border: 2px black;
           border-style: solid;
      }
 
-     @media (max-width: 991.98px) {
+     @media (max-width: 1200px) {
           .sidebar {
                transform: translateX(-100%);
                transition: transform 0.3s ease;
@@ -66,15 +72,16 @@
      <div class="position-sticky">
           <div class="list-group list-group-flush mx-3 mt-4">
                <ul class="navbar-nav">
-                    <li class="admin-text"><a href="" class="side-bar-link">VRMMS | DASHBOARD</a></li>
+                    <a href="" class="side-bar-link"><li class="admin-text text-center">VRMMS | ADMIN</li></a>
                     <hr style="color: white; opacity: 1;">
-                    <li class="side-bar-link-section"><a href="Admin_Dashboard.php" class="side-bar-link">Dashboard</a></li>
-                    <li class="side-bar-link-section"><a href="Service_Offer.php" class="side-bar-link">Services Offer</a></li>
-                    <li class="side-bar-link-section"><a href="Mechanic.php" class="side-bar-link">Mechanics</a></li>
-                    <li class="side-bar-link-section"><a href="Registered_Users.php" class="side-bar-link">Registered Users</a></li>
-                    <li class="side-bar-link-section"><a href="" class="side-bar-link">Message</a></li>
-                    <li class="side-bar-link-section"><a href="Service_Request.php" class="side-bar-link">Service Request</a></li>
-                    <li class="side-bar-link-section"><a href="Service_History.php" class="side-bar-link">Service History</a></li>
+                    <a href="Admin_Dashboard.php" class="side-bar-link"><li class="side-bar-link-section">Dashboard</li></a>
+                    <a href="Service_Offer.php" class="side-bar-link"><li class="side-bar-link-section">Services Offer</li></a>
+                    <a href="Mechanic.php" class="side-bar-link"><li class="side-bar-link-section">Mechanics</li></a>
+                    <a href="Registered_Users.php" class="side-bar-link"><li class="side-bar-link-section">Registered Users</li></a>
+                    <a href="" class="side-bar-link"><li class="side-bar-link-section">Message</li></a>
+                    <a href="Service_Request.php" class="side-bar-link"><li class="side-bar-link-section">Service Request</li></a>
+                    <a href="Service_History.php" class="side-bar-link"><li class="side-bar-link-section">Service History</li></a>
+                    <a href="" class="side-bar-link"><li class="side-bar-link-section-b">Logout</li></a>
                </ul>
           </div>
      </div>

@@ -35,6 +35,12 @@
           margin: 5px 0px;
      }
 
+     .side-bar-link-section-b {
+          background-color: color(srgb 0.0631 0.1294 0.145);
+          padding: 10px 20px;
+          margin: 5px 0px;
+     }
+
      .sub-side-bar-link-section {
           background-color: color(srgb 0.1294 0.2682 0.2997);
           padding: 10px 20px;
@@ -42,7 +48,7 @@
           margin-right: 50px;
      }
 
-     .side-bar-link-section:hover, .sub-side-bar-link-section:hover {
+     .side-bar-link-section:hover, .sub-side-bar-link-section:hover, .sub-side-bar-link-section-b:hover {
           border: 2px black;
           border-style: solid;
      }
@@ -73,12 +79,13 @@
      <div class="position-sticky">
           <div class="list-group list-group-flush mx-3 mt-4">
                <ul class="navbar-nav">
-                    <li class="admin-text"><a href="" class="side-bar-link">VRMMS | MECHANIC</a></li>
+                    <li class="admin-text text-center"><a href="" class="side-bar-link">VRMMS | MECHANIC</a></li>
                     <hr style="color: white; opacity: 1;">
                     <a href="Dashboard.php" class="side-bar-link"><li class="side-bar-link-section">Dashboard</li></a>
                     <a href="Job_Assignment.php" class="side-bar-link"><li class="side-bar-link-section">Job Assignment</li></a>
                     <a href="Ongoing_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section">Ongoing</li></a>
                     <a href="Complete_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section">Complete</li></a>
+                    <a href="" class="side-bar-link"><li class="side-bar-link-section-b">Logout</li></a>
                </ul>
           </div>
      </div>
