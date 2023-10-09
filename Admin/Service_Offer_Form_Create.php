@@ -9,7 +9,7 @@
                crossorigin="anonymous">
           <link rel="stylesheet" href="../CSS/style.css">
           <link rel="stylesheet" href="../CSS/bg-style-a.css">
-          <title>Admin | Service Offer</title>
+          <title>Admin | Create Service Offer</title>
           <style>
                .admin-section {
                     margin-top: 0px;
@@ -99,7 +99,7 @@
                     <div class="col-xl-2 col-0"></div>
                     <div class="col-xl-10 col-12">
                          <div class="d-flex justify-content-center">
-                              <h3 class="admin-head-txt mb-0">Update Service</h3>
+                              <h3 class="admin-head-txt mb-0">Create Service</h3>
                          </div>
                          <div class="d-flex justify-content-center">
                               <hr style="opacity: 1; color: white; width: 80%;">

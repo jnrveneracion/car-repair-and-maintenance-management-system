@@ -41,15 +41,6 @@
                     margin-left: 20px;
                }
 
-               .mechanic-head-txt {
-                    margin: 20px;
-                    color: white;
-                    margin-top: 50px;
-                    text-transform: uppercase;
-                    padding: 10px 15px;
-                    background-color: color(srgb 0.0472 0.1883 0.2773);
-                    width: fit-content;
-               }
 
                th, td {
                     text-align: center;
@@ -71,6 +62,17 @@
                     border: 1px solid white;
                     vertical-align: middle;
                }
+
+               .mechanic-head-txt {
+                    margin: 20px;
+                    color: white;
+                    margin-top: 50px;
+                    text-transform: uppercase;
+                    padding: 10px 15px;
+                    background-color: color(srgb 0.0472 0.1883 0.2773);
+                    width: fit-content;
+               }
+
 
                .btn-a {
                     background-color: color(srgb 0.325 0.325 0.325);
