@@ -6,7 +6,7 @@ if (isset($_GET['request_id'])) {
     $request_id = $_GET['request_id'];
 
     // Update the status to '1' for the specified request ID
-    $sql = "UPDATE service_request SET status = '1' WHERE request_id = $request_id";
+    $sql = "UPDATE service_request SET request_status = '1' WHERE request_id = $request_id";
     $result = mysqli_query($con, $sql);
 
     if (!$result) {

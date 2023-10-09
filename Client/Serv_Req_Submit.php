@@ -9,7 +9,7 @@
      $car_reg_num = $_POST['car_reg_num'];
      $service_type = $_POST['service_type'];
      $car_problem = $_POST['car_problem'];
-     $status = $_POST['status'];
+     $status = $_POST['status']; //Ano to?? need ata palitan ng request_status
 
      // You might want to add validation and sanitization here
 

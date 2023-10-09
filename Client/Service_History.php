@@ -1,18 +1,36 @@
 <?php
-     include('../connection.php');
+// session_start(); // Start the session
 
-     $query = "
-     SELECT sr.request_id, sr.car_brand, sr.car_model, sr.car_reg_num, sr.service_type, sr.status
-     FROM service_request sr
+include('../connection.php');
 
-     ";
+// Check if the client is logged in and retrieve the client_id from the session
+if (isset($_SESSION['client_id']) && $_SESSION['role'] == 'client') {
+    $client_id = $_SESSION['client_id'];
 
-     $result = mysqli_query($con, $query);
+    $query = "
+    SELECT sr.request_id, sr.car_brand, sr.car_model, sr.car_reg_num, sr.service_type, sr.request_status
+    FROM service_request sr
+    WHERE sr.client_id = ?
+    ";
 
-     if (!$result) {
-     die("Query failed: " . mysqli_error($con));
-     }
+    // Prepare the SQL statement
+    $stmt = mysqli_prepare($con, $query);
+    mysqli_stmt_bind_param($stmt, "i", $client_id);
+
+    // Execute the prepared statement
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (!$result) {
+        die("Query failed: " . mysqli_error($con));
+    }
+} else {
+    // Redirect the user to the login page or handle the case where the user is not logged in
+    header("Location: Login.php");
+    exit();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +115,7 @@
                                             echo "<td>{$row['car_model']}</td>";
                                             echo "<td>{$row['car_reg_num']}</td>";
                                             echo "<td>{$row['service_type']}</td>";
-                                            echo "<td>" . ($row['status'] == 0 ? 'Pending' : 'Confirmed') . "</td>";
+                                            echo "<td>" . ($row['request_status'] == 0 ? 'Pending' : 'Confirmed') . "</td>";
                                             echo "<td><a href='View_Service_History.php?request_id={$row['request_id']}' class='btn btn-a'>View</a></td>"; 
                                         echo "</tr>";
                                     }

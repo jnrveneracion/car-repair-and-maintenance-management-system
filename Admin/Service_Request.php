@@ -5,7 +5,7 @@ include('../connection.php');
 $sql = "SELECT sr.request_id, c.fullname, sr.car_model, sr.service_type
         FROM service_request sr
         INNER JOIN client c ON sr.client_id = c.client_id
-        WHERE sr.status = '0'";
+        WHERE sr.request_status = '0'";
 
 $result = mysqli_query($con, $sql);
 

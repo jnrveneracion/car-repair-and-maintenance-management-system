@@ -16,7 +16,6 @@
       <th scope="col">Total Cost</th>
       <th scope="col">Service Status</th>
 
-      <!-- HINDI NA ATA NEED TONG FILE KASI NASA SERVICE HISTORY NA SYA-->
     </tr>
   </thead>
   <tbody>

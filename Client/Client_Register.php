@@ -1,7 +1,5 @@
 <?php
-    //session_start(); // Start the session if not already started
-
-    require('../connection.php'); 
+    require('../connection.php'); //Lahat ng page is kailangan ng session?
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Retrieve data from the form

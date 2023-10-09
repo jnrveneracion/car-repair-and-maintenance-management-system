@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_stmt_fetch($stmt)) {
         // Client login successful
-        $_SESSION['user_id'] = $client_id;
+        $_SESSION['client_id'] = $client_id; //client_id dapat eto
         $_SESSION['fullname'] = $fullname;
         $_SESSION['role'] = 'client';
         header("Location: ../index.php"); // Redirect to client dashboard | kapag nasa labas yung file ../ lang
@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_stmt_fetch($stmt)) {
         // Admin login successful
+        session_start(); // Start a session if not already started
         $_SESSION['user_id'] = $admin_id;
         $_SESSION['fullname'] = $fullname;
         $_SESSION['role'] = 'admin';
@@ -49,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_stmt_fetch($stmt)) {
         // Mechanic login successful
+        session_start(); // Start a session if not already started
         $_SESSION['user_id'] = $mechanic_id;
         $_SESSION['fullname'] = $fullname;
         $_SESSION['role'] = 'mechanic';

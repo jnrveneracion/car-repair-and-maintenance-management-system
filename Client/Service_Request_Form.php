@@ -1,4 +1,35 @@
+<?php
+// Start the session
+require('../connection.php');
+?>
 
+<?php
+// Check if the client is logged in and retrieve the client_id from the session
+if (isset($_SESSION['client_id'])) {
+    $client_id = $_SESSION['client_id'];
+} else {
+    // Redirect the user to the login page or handle the case where the user is not logged in
+    header("Location: Login.php");
+    exit();
+}
+
+
+
+// Retrieve service types from the services_offer table
+$sql = "SELECT DISTINCT type FROM services_offer";
+$result = mysqli_query($con, $sql);
+
+// Check if there are any service types
+$serviceTypes = [];
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $serviceTypes[] = $row['type'];
+    }
+}
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,25 +71,12 @@
      </head>
 
      <body>
-          <?php
-               require('../connection.php');
+       
 
-               // Retrieve service types from the services_offer table
-               $sql = "SELECT DISTINCT type FROM services_offer";
-               $result = mysqli_query($con, $sql);
 
-               // Check if there are any service types
-               $serviceTypes = [];
-               if ($result) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                         $serviceTypes[] = $row['type'];
-                    }
-               }
-
-               // Retrieve the client_id from the session
-               $client_id = $_SESSION['client_id'];
-          ?>
-          <?php include "../common/navbar-for-folder.php" ?>
+          <?php 
+               include "../common/navbar-for-folder.php" 
+          ?> 
 
 
 
