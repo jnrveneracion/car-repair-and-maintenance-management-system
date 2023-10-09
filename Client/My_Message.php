@@ -81,7 +81,7 @@ if (isset($_SESSION['client_id'])) {
           <div class="text-white section">
                <div>
                     <div>
-                        <div class="head-section-txt">MY SERVICE REQUEST</div>
+                        <div class="head-section-txt">MY MESSAGE</div>
                     </div>
                     <div style="padding: 50px 0px;">
                         <div class="table-section">
@@ -102,7 +102,8 @@ if (isset($_SESSION['client_id'])) {
                                     echo "<td>" . $row['message_id'] . "</td>";
                                     echo "<td>" . $row['subject'] . "</td>";
                                     echo "<td>" . $row['date'] . "</td>";
-                                    echo "<td><a href='#'>View</a></td>"; // You can replace '#' with the appropriate link
+                                    echo "<td><a href='view-message.php?message_id=" . $row['message_id'] . "'>View</a></td>";
+
                                     echo "</tr>";
                                 }
                                 ?>

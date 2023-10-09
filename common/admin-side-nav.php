@@ -87,8 +87,9 @@
                     <a href="Registered_Users.php" class="side-bar-link"><li class="side-bar-link-section">Registered Users</li></a>
                     <a href="" class="side-bar-link"><li class="side-bar-link-section">Message</li></a>
                     <a href="Service_Request.php" class="side-bar-link"><li class="side-bar-link-section">Service Request</li></a>
+                    <a href="Pending_Service.php" class="side-bar-link"><li class="side-bar-link-section">Pending Service</li></a>
                     <a href="Service_History.php" class="side-bar-link"><li class="side-bar-link-section">Service History</li></a>
-                    <a href="" class="side-bar-link"><li class="side-bar-link-section-b">Logout</li></a>
+                    <a href="../Client/Logout.php" class="side-bar-link"><li class="side-bar-link-section-b">Logout</li></a>
                </ul>
           </div>
      </div>
