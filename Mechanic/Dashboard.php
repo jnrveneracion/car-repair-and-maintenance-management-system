@@ -26,7 +26,7 @@
                .mechanic-head-txt {
                     margin: 20px;
                     color: white;
-                    margin-top: 150px;
+                    margin-top: 50px;
                     text-transform: uppercase;
                     padding: 10px 15px;
                     background-color: color(srgb 0.0472 0.1883 0.2773);
@@ -57,7 +57,10 @@
                     <div class="col-xl-2 col-0"></div>
                     <div class="col-xl-10 col-12">
                          <div class="d-flex justify-content-center">
-                              <h3 class="mechanic-head-txt">Dashboard Overview</h3>
+                              <h3 class="mechanic-head-txt mb-0">Dashboard Overview</h3>
+                         </div>
+                         <div class="d-flex justify-content-center">
+                              <hr style="opacity: 1; color: white; width: 80%;">
                          </div>
                          <div class="d-flex justify-content-center">
                               <div class="mechanic-section">
@@ -98,9 +101,7 @@
                                    </div>
                               </div>
                          </div>
-
                     </div>
-
                </div>
           </div>
      </body>

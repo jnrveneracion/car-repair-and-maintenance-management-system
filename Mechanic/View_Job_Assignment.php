@@ -88,7 +88,10 @@ if (isset($_GET['request_id'])) {
                          <div class="col-xl-2 col-0"></div>
                          <div class="col-xl-10 col-12">
                               <div class="d-flex justify-content-center">
-                                   <h3 class="mechanic-head-txt">View Job Assignment</h3>
+                                   <h3 class="mechanic-head-txt mb-0">View Job Assignment</h3>
+                              </div>
+                              <div class="d-flex justify-content-center">
+                                   <hr style="opacity: 1; color: white; width: 80%;">
                               </div>
                               <div class="d-flex justify-content-center">
                                    <div class="table-section">
@@ -159,7 +162,7 @@ if (isset($_GET['request_id'])) {
                                              }
 
                                              if (mysqli_num_rows($serviceCostResult) > 0) {
-                                                  echo '<h3>Service Cost</h3>';
+                                                  echo '<h3 class="text-center">Service Cost</h3>';
 
                                                   echo '<table class="table">';
                                                   echo '<thead>';

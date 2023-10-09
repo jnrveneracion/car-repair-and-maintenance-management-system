@@ -86,7 +86,10 @@
                     <div class="col-xl-2 col-0"></div>
                     <div class="col-xl-10 col-12">
                          <div class="d-flex justify-content-center">
-                              <h3 class="mechanic-head-txt">Job Assignment</h3>
+                              <h3 class="mechanic-head-txt mb-0">Job Assignment</h3>
+                         </div>
+                         <div class="d-flex justify-content-center">
+                              <hr style="opacity: 1; color: white; width: 80%;">
                          </div>
                          <div class="d-flex justify-content-center">
                               <div class="table-section">
