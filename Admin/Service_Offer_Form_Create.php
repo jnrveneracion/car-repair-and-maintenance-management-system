@@ -85,6 +85,10 @@
                     border: 1px solid black !important;
                }
 
+               .button:hover {
+                    filter: brightness(.9);
+               }
+
                input, textarea, select {
                     border: 1px solid black !important;
                     border-radius: 0px !important;
