@@ -115,7 +115,7 @@
                                              <div id="options" class="">
                                                   <a class="user-menu" href="Client/Service_Request_Form.php">Service Request</a>
                                                   <a class="user-menu" href="Client/Service_History.php">My Service Request</a>
-                                                  <a class="user-menu" href="Client/view-message.php">My Messages</a>
+                                                  <a class="user-menu" href="Client/My_Message.php">My Messages</a>
                                                   <a class="user-menu" href="Client/my-account.php">My Account</a> 
                                                   <a class="logout-btn" href="Client/Logout.php">Logout</a> 
                                              </div>
