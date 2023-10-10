@@ -17,7 +17,7 @@
                <p class="m-0">Our Services</p>
                <p style="font-size: 20px; font-weight: 200; margin: 0px;">Explore Our Services</p>
           </div>
-          <div class="row m-2 p-3">
+          <div class="row m-2 p-3" style="min-height: 400px;">
                <?php
                // Include the database connection file
                require("Admin/Admin_Connection.php");
