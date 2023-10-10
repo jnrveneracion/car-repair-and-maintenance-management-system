@@ -134,5 +134,6 @@
 
                </div>
           </div>
+          <script>document.getElementById('job-assignment').style = "border: 3px solid black;";</script>
      </body>
 </html>

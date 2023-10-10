@@ -251,5 +251,6 @@ if (isset($_GET['message_id'])) {
                     </div>
                </div>
           </div>
+          <script>document.getElementById('message-nav').style = "border: 3px solid black;";</script>
      </body>
 </html>

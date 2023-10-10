@@ -219,5 +219,6 @@ if (isset($_GET['request_id'])) {
                     </div>
                </div>
           </div>
+          <script>document.getElementById('service-request-nav').style = "border: 3px solid black;";</script>
      </body>
 </html>

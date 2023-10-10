@@ -81,15 +81,15 @@
                <ul class="navbar-nav">
                     <a href="" class="side-bar-link"><li class="admin-text text-center">VRMMS | ADMIN</li></a>
                     <hr style="color: white; opacity: 1;">
-                    <a href="Admin_Dashboard.php" class="side-bar-link"><li class="side-bar-link-section">Dashboard</li></a>
-                    <a href="Service_Offer.php" class="side-bar-link"><li class="side-bar-link-section">Services Offer</li></a>
-                    <a href="Mechanic.php" class="side-bar-link"><li class="side-bar-link-section">Mechanics</li></a>
-                    <a href="Registered_Users.php" class="side-bar-link"><li class="side-bar-link-section">Registered Users</li></a>
-                    <a href="../Admin/Message.php" class="side-bar-link"><li class="side-bar-link-section">Message</li></a>
-                    <a href="Service_Request.php" class="side-bar-link"><li class="side-bar-link-section">Service Request</li></a>
-                    <a href="Pending_Service.php" class="side-bar-link"><li class="side-bar-link-section">Pending Service</li></a>
-                    <a href="Service_History.php" class="side-bar-link"><li class="side-bar-link-section">Service History</li></a>
-                    <a href="../Client/Logout.php" class="side-bar-link"><li class="side-bar-link-section-b">Logout</li></a>
+                    <a href="Admin_Dashboard.php" class="side-bar-link"><li class="side-bar-link-section" id="dashboard-nav">Dashboard</li></a>
+                    <a href="Service_Offer.php" class="side-bar-link"><li class="side-bar-link-section" id="services-offer-nav">Services Offer</li></a>
+                    <a href="Mechanic.php" class="side-bar-link"><li class="side-bar-link-section" id="mechanics-nav">Mechanics</li></a>
+                    <a href="Registered_Users.php" class="side-bar-link"><li class="side-bar-link-section" id="registered-users-nav">Registered Users</li></a>
+                    <a href="../Admin/Message.php" class="side-bar-link"><li class="side-bar-link-section" id="message-nav">Message</li></a>
+                    <a href="Service_Request.php" class="side-bar-link"><li class="side-bar-link-section" id="service-request-nav">Service Request</li></a>
+                    <a href="Pending_Service.php" class="side-bar-link"><li class="side-bar-link-section" id="pending-service-nav">Pending Service</li></a>
+                    <a href="Service_History.php" class="side-bar-link"><li class="side-bar-link-section" id="service-history-nav">Service History</li></a>
+                    <a href="../Client/Logout.php" class="side-bar-link"><li class="side-bar-link-section-b" id="logout">Logout</li></a>
                </ul>
           </div>
      </div>

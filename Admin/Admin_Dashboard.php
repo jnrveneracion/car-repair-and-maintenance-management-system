@@ -89,11 +89,16 @@ $totalServiceCosts = $costData['total_service_costs'];
                }
 
                .tot {
-                    background-color: color(srgb 0.9702 0.7395 0.3452);
-                    padding: 26px 50px;
+                    background-image: url('../Assets/circle.png');
                     border-radius: 100%;
-                    font-size: 50px;
+                    font-size: 45px;
                     color: white;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    width: 100px;
+                    height: 100px;
+                    text-align: center;
+                    padding: 12px 0px;
                }
           </style>
 </head>
@@ -179,5 +184,6 @@ $totalServiceCosts = $costData['total_service_costs'];
                </div>
           </div>
      </div>
+     <script>document.getElementById('dashboard-nav').style = "border: 3px solid black;";</script>
 </body>
 </html>
