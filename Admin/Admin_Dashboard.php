@@ -10,7 +10,7 @@
      <link rel="stylesheet" href="../CSS/bg-style-a.css">
      <title>Admin | Dashboard</title>
      <style>
-               .mechanic-section {
+               .admin-section {
                     margin-top: 0px;
                     margin-bottom: 100px;
                     background-color: rgba(0, 0, 0, 0.29);
@@ -22,7 +22,7 @@
                     width: 850px;
                }
 
-               .mechanic-head-txt {
+               .admin-head-txt {
                     margin: 20px;
                     color: white;
                     margin-top: 50px;
@@ -55,13 +55,13 @@
                <div class="col-xl-2 col-0"></div>
                <div class="col-xl-10 col-12">
                     <div class="d-flex justify-content-center">
-                         <h3 class="mechanic-head-txt mb-0">Dashboard Overview</h3>
+                         <h3 class="admin-head-txt mb-0">Dashboard Overview</h3>
                     </div>
                     <div class="d-flex justify-content-center">
                          <hr style="opacity: 1; color: white; width: 80%;">
                     </div>
                     <div class="d-flex justify-content-center">
-                         <div class="mechanic-section">
+                         <div class="admin-section">
                               <div class="row">
                                    <div class="col-md-6 col-xl-4 col-12 sec">
                                         <div class="d-flex justify-content-center">

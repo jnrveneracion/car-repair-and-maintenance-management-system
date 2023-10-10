@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: Message cannot be empty.";
     } else {
         // Insert the data into the message table
-        $sql = "INSERT INTO message (subject, message, date, client_id) VALUES (?, ?, NOW(), ?)";
+        $sql = "INSERT INTO `message` (`subject`, `message`, `date`, client_id) VALUES (?, ?, NOW(), ?)";
         $stmt = $con->prepare($sql);
         $stmt->bind_param("ssi", $subject, $message, $client_id);
 

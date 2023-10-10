@@ -116,7 +116,7 @@ $result = mysqli_query($con, $sql);
                     <div class="col-xl-2 col-0"></div>
                     <div class="col-xl-10 col-12">
                          <div class="d-flex justify-content-center">
-                              <h3 class="admin-head-txt mb-0">Mechanics</h3>
+                              <h3 class="admin-head-txt mb-0">Service Request</h3>
                          </div>
                          <div class="d-flex justify-content-center">
                               <hr style="opacity: 1; color: white; width: 80%;">

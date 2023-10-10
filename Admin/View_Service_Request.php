@@ -29,17 +29,15 @@ if (isset($_GET['request_id'])) {
                     margin-bottom: 100px;
                     background-color: rgba(0, 0, 0, 0.29);
                     min-width: 200px;
-                    overflow: scroll;
                     padding: 30px;
                     margin-right: 20px;
                     margin-left: 20px;
-                    width: 400px;
+                    width: 600px;
                }
 
                .table-section {
                     margin-top: 0px;
                     min-width: 200px;
-                    overflow: scroll;
                }
 
 
@@ -115,7 +113,7 @@ if (isset($_GET['request_id'])) {
                     background-color: red;
                     text-decoration: none;
                     color: black;
-                    padding: 8px 20px;
+                    padding: 5px 20px;
                }
 
                .buttons:hover {

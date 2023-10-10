@@ -49,7 +49,9 @@
                <div class="col-xl-6 col-12">
                     <div class="m-3">
                          <div class="w-100">
+
                               <form action="save_message.php" method="post">
+                                   <!-- <input type="hidden" name="client_id" value="<?php //echo $_SESSION['client_id']; ?>"> -->
                                    <div class="input-group mb-3">
                                         <span class="input-group-text label" id="subject">Subject:</span>
                                         <input type="text" class="input" aria-label="subject" name="subject"
@@ -60,8 +62,6 @@
                                         <textarea class="input" aria-label="message" style="height: 150px;"
                                              name="message"></textarea>
                                    </div>
-
-
                                    <button type="submit" class="btn submit-btn">Send Message</button>
                               </form>
                          </div>

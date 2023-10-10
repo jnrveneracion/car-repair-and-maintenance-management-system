@@ -22,8 +22,6 @@ $result = mysqli_query($con, $sql);
                     margin-top: 0px;
                     margin-bottom: 100px;
                     background-color: rgba(0, 0, 0, 0.29);
-                    min-width: 200px;
-                    overflow: scroll;
                     padding: 30px;
                     margin-right: 20px;
                     margin-left: 20px;
@@ -33,7 +31,6 @@ $result = mysqli_query($con, $sql);
                .table-section {
                     margin-top: 0px;
                     min-width: 200px;
-                    overflow: scroll;
                     padding: 30px 0px;
                }
 
