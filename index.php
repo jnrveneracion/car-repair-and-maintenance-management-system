@@ -19,8 +19,8 @@
           <div class="text-white section d-flex justify-content-center text-center">
                <div>
                     <div>
-                         <p class="head-text p-0 m-0">CAR REPAIR AND MAINTENANCE MANAGEMENT SYSTEM</p>
-                         <p class="head-sub-text">We care about your car</p>
+                         <p class="head-text p-0 m-0">VEHICLE REPAIR AND MAINTENANCE MANAGEMENT SYSTEM</p>
+                         <p class="head-sub-text">We care about your vehicle</p>
                     </div>
                     <div class="row">
                          <div class="col-xl-4 col-12">
@@ -47,7 +47,7 @@
                          </div>
                          <div class="col-12">
                               <div class="m-2">
-                                   <p>Got a problem with your car? We got you we offer  different service that you probably need.</p>
+                                   <p>Got a problem with your vehicle? We got you we offer  different service that you probably need.</p>
                                    <!-- kapag nasa loob ng folder is no need na ng ../ -->
                                    <a href="Client/Service_Request_Form.php" class="yellow-btn">BOOK NOW!</a> 
                               </div>

@@ -138,17 +138,17 @@ if (isset($_GET['request_id'])) {
                                              echo '</tr>';
 
                                              echo '<tr>';
-                                             echo '<th scope="row">Car Model</th>';
+                                             echo '<th scope="row">Vehicle Model</th>';
                                              echo '<td>' . $row['car_model'] . '</td>';
                                              echo '</tr>';
 
                                              echo '<tr>';
-                                             echo '<th scope="row">Car Brand</th>';
+                                             echo '<th scope="row">Vehicle Brand</th>';
                                              echo '<td>' . $row['car_brand'] . '</td>';
                                              echo '</tr>';
 
                                              echo '<tr>';
-                                             echo '<th scope="row">Car Registered Number</th>';
+                                             echo '<th scope="row">Vehicle Registered Number</th>';
                                              echo '<td>' . $row['car_reg_num'] . '</td>';
                                              echo '</tr>';
 

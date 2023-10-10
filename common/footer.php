@@ -59,6 +59,6 @@
           </div>
      </div>
      <div class="footer-bottom-section text-center fst-italic m-2" style="font-size: 13px;">
-          ©CRMMS, All Rights Reserved, Designed by Group 5
+          ©VRMMS, All Rights Reserved, Designed by Group 5
      </div>
 </div>

@@ -105,12 +105,12 @@ if ($result) {
                               <input type="hidden" name="status" value="0">
                               <!-- hidden input field -->
                               <div class="mb-3">
-                                   <label for="car_model" class="form-label">Car Model</label>
+                                   <label for="car_model" class="form-label">Vehicle Model</label>
                                    <input type="text" class="form-control" id="car_model" name="car_model" required>
                               </div>
 
                               <div class="mb-3">
-                                   <label for="car_brand" class="form-label">Car Brand</label>
+                                   <label for="car_brand" class="form-label">Vehicle Brand</label>
                                    <input type="text" class="form-control" id="car_brand" name="car_brand" required>
                               </div>
 
@@ -133,7 +133,7 @@ if ($result) {
                               </div>
 
                               <div class="mb-3">
-                                   <label for="car_problem" class="form-label">Car Problem</label>
+                                   <label for="car_problem" class="form-label">Vehicle Problem</label>
                                    <input type="text" class="form-control" id="car_problem" name="car_problem" required>
                               </div>
 
