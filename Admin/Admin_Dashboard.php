@@ -1,3 +1,52 @@
+<?php
+require('Admin_Connection.php');
+
+// Function to execute SQL query and return the result as an associative array
+function executeQuery($sql)
+{
+    global $conn;
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        return mysqli_fetch_assoc($result);
+    } else {
+        return false;
+    }
+}
+
+// Get the total number of registered users
+$sql = "SELECT COUNT(*) as total_users FROM client";
+$userData = executeQuery($sql);
+$totalUsers = $userData['total_users'];
+
+// Get the total number of mechanics
+$sql = "SELECT COUNT(*) as total_mechanics FROM mechanic";
+$mechanicData = executeQuery($sql);
+$totalMechanics = $mechanicData['total_mechanics'];
+
+// Get the total number of service requests
+$sql = "SELECT COUNT(*) as total_service_requests FROM service_request";
+$requestData = executeQuery($sql);
+$totalServiceRequests = $requestData['total_service_requests'];
+
+// Get the total number of messages
+$sql = "SELECT COUNT(*) as total_messages FROM message";
+$messageData = executeQuery($sql);
+$totalMessages = $messageData['total_messages'];
+
+// Get the total number of service requests with request_status = 0
+$sql = "SELECT COUNT(*) as total_open_service_requests FROM service_request WHERE request_status = 0";
+$requestData = executeQuery($sql);
+$totalOpenServiceRequests = $requestData['total_open_service_requests'];
+
+// Get the total number of service costs with service_status_id = '4'
+$sql = "SELECT COUNT(*) as total_service_costs FROM service_cost WHERE service_status_id = 4";
+$costData = executeQuery($sql);
+$totalServiceCosts = $costData['total_service_costs'];
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,8 +117,7 @@
                                              <div class="m-3">
                                                   <p class="sec-head">Total Registered User</p>
                                                   <div class="d-flex justify-content-center">
-                                                       <span class="tot">6</span>
-                                                       <!-- dito mo ilagay yung echo ng php -->
+                                                  <span class="tot"><?php echo $totalUsers; ?></span>
                                                   </div>
                                              </div>
                                         </div>
@@ -79,8 +127,7 @@
                                              <div class="m-3">
                                                   <p class="sec-head">Total Mechanics</p>
                                                   <div class="d-flex justify-content-center">
-                                                       <span class="tot">4</span>
-                                                       <!-- dito mo ilagay yung echo ng php -->
+                                                  <span class="tot"><?php echo $totalMechanics; ?></span>
                                                   </div>
                                              </div>
                                         </div>
@@ -90,8 +137,7 @@
                                              <div class="m-3">
                                                   <p class="sec-head">Total Service Request</p>
                                                   <div class="d-flex justify-content-center">
-                                                       <span class="tot">1</span>
-                                                       <!-- dito mo ilagay yung echo ng php -->
+                                                  <span class="tot"><?php echo $totalServiceRequests; ?></span>
                                                   </div>
                                              </div>
                                         </div>
@@ -101,8 +147,7 @@
                                              <div class="m-3">
                                                   <p class="sec-head">Total Message</p>
                                                   <div class="d-flex justify-content-center">
-                                                       <span class="tot">1</span>
-                                                       <!-- dito mo ilagay yung echo ng php -->
+                                                       <span class="tot"><?php echo $totalMessages; ?></span>
                                                   </div>
                                              </div>
                                         </div>
@@ -112,8 +157,7 @@
                                              <div class="m-3">
                                                   <p class="sec-head">Total New Service Request</p>
                                                   <div class="d-flex justify-content-center">
-                                                       <span class="tot">1</span>
-                                                       <!-- dito mo ilagay yung echo ng php -->
+                                                       <span class="tot"><?php echo $totalOpenServiceRequests; ?></span>
                                                   </div>
                                              </div>
                                         </div>
@@ -123,8 +167,8 @@
                                              <div class="m-3">
                                                   <p class="sec-head">Finished Services</p>
                                                   <div class="d-flex justify-content-center">
-                                                       <span class="tot">1</span>
-                                                       <!-- dito mo ilagay yung echo ng php -->
+                                 
+                                                       <span class="tot"><?php echo $totalServiceCosts; ?></span>
                                                   </div>
                                              </div>
                                         </div>
