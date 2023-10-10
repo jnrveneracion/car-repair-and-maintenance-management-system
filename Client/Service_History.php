@@ -42,7 +42,7 @@ if (isset($_SESSION['client_id']) && $_SESSION['role'] == 'client') {
      <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="../CSS/style.css">
      <link rel="stylesheet" href="../CSS/bg-style-a.css">
-    <title>My Service Request</title>
+    <title>My Service History</title>
     <style>
         .head-section-txt {
             width: fit-content;
@@ -91,7 +91,7 @@ if (isset($_SESSION['client_id']) && $_SESSION['role'] == 'client') {
           <div class="text-white section" style="min-height: 445px;">
                <div>
                     <div>
-                        <div class="head-section-txt">MY SERVICE REQUEST</div>
+                        <div class="head-section-txt">MY SERVICE HISTORY</div>
                     </div>
                     <div style="padding: 50px 0px;">
                         <div class="table-section">

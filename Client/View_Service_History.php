@@ -65,7 +65,7 @@
           <div class="text-white section">
                <div>
                     <div>
-                        <a href="Service_History.php"><div class="head-section-txt">MY SERVICE REQUEST</div></a>
+                        <a href="Service_History.php"><div class="head-section-txt">MY SERVICE HISTORY</div></a>
                     </div>
                     <div style="padding: 50px 0px;;">
                         <div class="table-section">

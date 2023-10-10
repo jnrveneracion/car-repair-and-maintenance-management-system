@@ -78,7 +78,7 @@ if (isset($_SESSION['client_id'])) {
     ?>
 
     <div class="f-height d-flex justify-content-center" style="margin-bottom: 50px;">
-          <div class="text-white section">
+          <div class="text-white section" style="min-height: 445px;">
                <div>
                     <div>
                         <div class="head-section-txt">MY MESSAGE</div>
@@ -95,18 +95,18 @@ if (isset($_SESSION['client_id'])) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php
-                                // Loop through the retrieved data and display it in the table
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    echo "<tr>";
-                                    echo "<td>" . $row['message_id'] . "</td>";
-                                    echo "<td>" . $row['subject'] . "</td>";
-                                    echo "<td>" . $row['date'] . "</td>";
-                                    echo "<td><a href='view-message.php?message_id=" . $row['message_id'] . "'>View</a></td>";
+                                   <?php
+                                   // Loop through the retrieved data and display it in the table
+                                   while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row['message_id'] . "</td>";
+                                        echo "<td>" . $row['subject'] . "</td>";
+                                        echo "<td>" . $row['date'] . "</td>";
+                                        echo "<td><a href='view-message.php?message_id=" . $row['message_id'] . "' class='btn btn-a'>View</a></td>";
 
-                                    echo "</tr>";
-                                }
-                                ?>
+                                        echo "</tr>";
+                                   }
+                                   ?>
                                 </tbody>
                             </table>
                         </div>
