@@ -8,7 +8,7 @@
           FROM service_cost sc
           INNER JOIN service_request sr ON sc.request_id = sr.request_id
           INNER JOIN client cl ON sr.client_id = cl.client_id
-          WHERE sc.mechanic_id = $mechanic_id AND sc.service_status_id = 2";
+          WHERE sc.mechanic_id = $mechanic_id AND sc.service_status_id = 1";
           
              
 

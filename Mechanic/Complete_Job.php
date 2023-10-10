@@ -1,8 +1,24 @@
-<!-- Dito makikita ung ongoing jobs. maglagay status? -->
-
 <?php
-    include('../connection.php');
+     include('../connection.php');
+     
+   $mechanic_id = $_SESSION['mechanic_id'];
+     
+   $query = "SELECT sc.request_id, cl.fullname, cl.mobile_number, cl.email,
+                 sr.car_brand AS car_brands, sr.car_model AS car_models, sr.service_type AS serv_type
+          FROM service_cost sc
+          INNER JOIN service_request sr ON sc.request_id = sr.request_id
+          INNER JOIN client cl ON sr.client_id = cl.client_id
+          WHERE sc.mechanic_id = $mechanic_id AND sc.service_status_id = 4";
+          
+             
+
+     $result = mysqli_query($con, $query);
+
+     if (!$result) {
+         die("Database query failed.");
+     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
      <head>
@@ -26,15 +42,6 @@
                     margin-left: 20px;
                }
 
-               .mechanic-head-txt {
-                    margin: 20px;
-                    color: white;
-                    margin-top: 50px;
-                    text-transform: uppercase;
-                    padding: 10px 15px;
-                    background-color: color(srgb 0.0472 0.1883 0.2773);
-                    width: fit-content;
-               }
 
                th, td {
                     text-align: center;
@@ -57,6 +64,17 @@
                     vertical-align: middle;
                }
 
+               .mechanic-head-txt {
+                    margin: 20px;
+                    color: white;
+                    margin-top: 50px;
+                    text-transform: uppercase;
+                    padding: 10px 15px;
+                    background-color: color(srgb 0.0472 0.1883 0.2773);
+                    width: fit-content;
+               }
+
+
                .btn-a {
                     background-color: color(srgb 0.325 0.325 0.325);
                     border: none;
@@ -73,29 +91,42 @@
                     <div class="col-xl-2 col-0"></div>
                     <div class="col-xl-10 col-12">
                          <div class="d-flex justify-content-center">
-                              <h3 class="mechanic-head-txt mb-0">Complete Job Assignment</h3>
+                              <h3 class="mechanic-head-txt mb-0">Job Assignment</h3>
                          </div>
                          <div class="d-flex justify-content-center">
                               <hr style="opacity: 1; color: white; width: 80%;">
                          </div>
                          <div class="d-flex justify-content-center">
                               <div class="table-section">
-                                   <table class="table">
-                                   <thead>
-                                        <tr>
-                                             <th scope="col">#</th>
-                                             <th scope="col">Owner Name</th>
-                                             <th scope="col">Contact No</th>
-                                             <th scope="col">Car Brand</th>
-                                             <th scope="col">Service Type</th>
-                                             <th scope="col">Date</th>
-                                             <th scope="col">Service Status</th>
-
-                                             <!-- dapat may view function Dito -->
-                                        </tr>
-                                   </thead>
-                                   <tbody>
-                                   </tbody>
+                                   <table>
+                                        <thead>
+                                             <tr>
+                                                  <th scope="col">Request ID</th>
+                                                  <th scope="col">Full Name</th>
+                                                  <th scope="col">Mobile Number</th>
+                                                  <th scope="col">Email</th>
+                                                  <th scope="col">Car Brand</th>
+                                                  <th scope="col">Car Model</th>
+                                                  <th scope="col">Service Type</th>
+                                                  <th scope="col">Action</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<tr>";
+                                    echo "<td>{$row['request_id']}</td>";
+                                    echo "<td>{$row['fullname']}</td>";
+                                    echo "<td>{$row['mobile_number']}</td>";
+                                    echo "<td>{$row['email']}</td>";
+                                    echo "<td>{$row['car_brands']}</td>";
+                                    echo "<td>{$row['car_models']}</td>";
+                                    echo "<td>{$row['serv_type']}</td>";
+                                    echo "<td><a href='View_Job_Assignment.php?request_id={$row['request_id']}' class='btn-a btn'>View</a></td>";
+                                    echo "</tr>";
+                                }
+                                ?>
+                                        </tbody>
                                    </table>
                               </div>
                          </div>
@@ -104,6 +135,6 @@
 
                </div>
           </div>
-          <script>document.getElementById('complete-job').style = "border: 3px solid black;";</script>
+          <script>document.getElementById('job-assignment').style = "border: 3px solid black;";</script>
      </body>
 </html>

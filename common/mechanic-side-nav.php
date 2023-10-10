@@ -83,7 +83,9 @@
                     <hr style="color: white; opacity: 1;">
                     <a href="Dashboard.php" class="side-bar-link"><li class="side-bar-link-section" id="dashboard">Dashboard</li></a>
                     <a href="Job_Assignment.php" class="side-bar-link"><li class="side-bar-link-section" id="job-assignment">Job Assignment</li></a>
+                    <a href="Pending_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section" id="ongoing-job">Pending</li></a>
                     <a href="Ongoing_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section" id="ongoing-job">Ongoing</li></a>
+                    <a href="Rejected_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section" id="complete-job">Rejected</li></a>
                     <a href="Complete_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section" id="complete-job">Complete</li></a>
                     <a href="../Client/Logout.php" class="side-bar-link"><li class="side-bar-link-section-b" id="logout">Logout</li></a>
 
