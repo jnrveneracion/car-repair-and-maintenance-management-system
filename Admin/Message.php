@@ -9,7 +9,9 @@ $sql = "SELECT
             client.fullname AS client_name,
             client.email AS client_email,
             message.subject,
-            message.date
+            message.date,
+            message.message,
+            message.admin_response
         FROM
             message
         JOIN
@@ -146,6 +148,8 @@ $result = mysqli_query($con, $sql);
                                                     <th scope="col">Email</th>
                                                     <th scope="col">Subject</th>
                                                     <th scope="col">Date</th>
+                                                    <th scope="col">Client Message</th>
+                                                    <th scope="col">Admin Response</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
@@ -158,6 +162,8 @@ $result = mysqli_query($con, $sql);
                                                 <td>' . $row['client_email'] . '</td>
                                                 <td>' . $row['subject'] . '</td>
                                                 <td>' . $row['date'] . '</td>
+                                                <td>' . $row['message'] . '</td>
+                                                <td>' . $row['admin_response'] . '</td>
                                                 <td><a href="View_Message.php?message_id=' . $row['message_id'] . '" class="btn-edit">View</a></td>
                                               </tr>';
                                     }

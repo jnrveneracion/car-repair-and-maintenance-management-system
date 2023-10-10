@@ -117,14 +117,14 @@
                                                   if (isset($_GET['service_id'])) {
                                                        $service_id = $_GET['service_id'];
                                                        // Fetch the existing service offer details based on service_id and populate the form fields for editing
-                                                       include('../connection.php');
+                                                       include('../Admin/Admin_Connection.php');
                                                        $sql = "SELECT * FROM services_offer WHERE service_id = ?";
-                                                       $stmt = mysqli_prepare($con, $sql);
+                                                       $stmt = mysqli_prepare($conn, $sql);
                                                        mysqli_stmt_bind_param($stmt, "i", $service_id);
                                                        mysqli_stmt_execute($stmt);
                                                        $result = mysqli_stmt_get_result($stmt);
                                                        $row = mysqli_fetch_assoc($result);
-                                                       mysqli_close($con);
+                                                       mysqli_close($conn);
                                                   }
                                              ?>
 

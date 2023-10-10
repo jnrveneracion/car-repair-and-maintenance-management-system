@@ -183,7 +183,7 @@
                                    } else {
                                         echo '</tbody>';
                                         echo '</table>';
-                                        echo "No service cost data found for this request.";
+                                        echo "Wait for the service cost data for this request.";
                                    }
                               
                                    mysqli_free_result($serviceCostResult);

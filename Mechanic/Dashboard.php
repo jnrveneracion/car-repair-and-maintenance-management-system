@@ -1,6 +1,36 @@
 <?php
-     require ("../connection.php");
+require('../Admin/Admin_Connection.php');
+
+// Function to execute SQL query and return the result as an associative array
+function executeQuery($sql)
+{
+    global $conn;
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        return mysqli_fetch_assoc($result);
+    } else {
+        return false;
+    }
+}
+
+// Get the total number of service costs with service_status_id = '1'
+$sql = "SELECT COUNT(*) as total_service_costs FROM service_cost WHERE service_status_id = 1";
+$costData = executeQuery($sql);
+$totalServiceCosts = $costData['total_service_costs'];
+
+// Get the total number of service costs with service_status_id = '4'
+$sql = "SELECT COUNT(*) as total_complete_job FROM service_cost WHERE service_status_id = 4";
+$completeJob = executeQuery($sql);
+$totalCompleteJob = $completeJob['total_complete_job'];
+
+// Get the total number of service costs with service_status_id = '4'
+$sql = "SELECT COUNT(*) as total_job_assign FROM service_cost";
+$totalJob = executeQuery($sql);
+$totalJobAssign = $totalJob['total_job_assign'];
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +108,8 @@
                                                   <div class="m-3">
                                                        <p class="sec-head">New Job Assignment</p>
                                                        <div class="d-flex justify-content-center">
-                                                            <span class="tot">6</span>
+                                             
+                                                            <span class="tot"><?php echo $totalServiceCosts; ?></span>
                                                             <!-- dito mo ilagay yung echo ng php -->
                                                        </div>
                                                   </div>
@@ -89,7 +120,7 @@
                                                   <div class="m-3">
                                                        <p class="sec-head">Finish Job Assignment</p>
                                                        <div class="d-flex justify-content-center">
-                                                            <span class="tot">4</span>
+                                                       <span class="tot"><?php echo $totalCompleteJob; ?></span>
                                                             <!-- dito mo ilagay yung echo ng php -->
                                                        </div>
                                                   </div>
@@ -100,7 +131,7 @@
                                                   <div class="m-3">
                                                        <p class="sec-head">Total Job Assignment</p>
                                                        <div class="d-flex justify-content-center">
-                                                            <span class="tot">1</span>
+                                                       <span class="tot"><?php echo $totalJobAssign; ?></span>
                                                             <!-- dito mo ilagay yung echo ng php -->
                                                        </div>
                                                   </div>

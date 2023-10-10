@@ -23,7 +23,7 @@
                require("Admin/Admin_Connection.php");
 
                // Query to retrieve service offers
-               $query = "SELECT * FROM services_offer";
+               $query = "SELECT * FROM services_offer WHERE status = 'Active'";
 
                // Execute the query
                $result = mysqli_query($con, $query);
