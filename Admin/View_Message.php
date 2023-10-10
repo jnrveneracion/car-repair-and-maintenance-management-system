@@ -3,10 +3,10 @@ include('../connection.php');
 
 // Check if the message_id is set in the URL
 if (isset($_GET['message_id'])) {
-    $message_id = $_GET['message_id'];
+     $message_id = $_GET['message_id'];
 
-    // Query to retrieve the specific message and client details
-    $sql = "SELECT
+     // Query to retrieve the specific message and client details
+     $sql = "SELECT
                 message.message_id,
                 client.fullname AS client_name,
                 client.email AS client_email,
@@ -21,18 +21,17 @@ if (isset($_GET['message_id'])) {
             WHERE
                 message.message_id = $message_id";
 
-    $result = mysqli_query($con, $sql);
-?>
+     $result = mysqli_query($con, $sql);
+     ?>
 
-<!DOCTYPE html>
-<html lang="en">
+     <!DOCTYPE html>
+     <html lang="en">
 
      <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-               integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-               crossorigin="anonymous">
+               integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
           <link rel="stylesheet" href="../CSS/style.css">
           <link rel="stylesheet" href="../CSS/bg-style-a.css">
           <title>Admin | Service Offer</title>
@@ -142,116 +141,125 @@ if (isset($_GET['message_id'])) {
                                         <p>Response to Message</p>
                                         <hr style="color: black; opacity: 1; padding: 3px;">
                                         <?php
-                                             if (!$result) {
-                                                  die("SQL query failed: " . mysqli_error($con));
+                                        if (!$result) {
+                                             die("SQL query failed: " . mysqli_error($con));
+                                        }
+
+                                        // Check if a message with the specified message_id exists
+                                        if (mysqli_num_rows($result) > 0) {
+                                             $row = mysqli_fetch_assoc($result);
+                                             echo '<table class="table">';
+                                             echo '<tbody>';
+
+                                             // echo '<tr>';
+                                             // echo '<th scope="row">Message ID</th>';
+                                             // echo '<td>' . $row['message_id'] . '</td>';
+                                             // echo '</tr>';
+                                   
+                                             echo '<tr>';
+                                             echo '<th scope="row">Full Name</th>';
+                                             echo '<td>' . $row['client_name'] . '</td>';
+                                             echo '</tr>';
+
+                                             echo '<tr>';
+                                             echo '<th scope="row">Email</th>';
+                                             echo '<td>' . $row['client_email'] . '</td>';
+                                             echo '</tr>';
+
+                                             echo '<tr>';
+                                             echo '<th scope="row">Subject</th>';
+                                             echo '<td>' . $row['subject'] . '</td>';
+                                             echo '</tr>';
+
+                                             echo '<tr>';
+                                             echo '<th scope="row">Message Date</th>';
+                                             echo '<td>' . $row['date'] . '</td>';
+                                             echo '</tr>';
+
+                                             echo '<tr>';
+                                             echo '<th scope="row">Message</th>';
+                                             echo '<td>' . $row['message'] . '</td>';
+                                             echo '</tr>';
+
+                                             echo '</tbody>';
+                                             echo '</table>';
+
+                                             // The Admin Form is here
+                                             echo '<form method="POST" action="">';
+                                             echo '<table class="table">';
+                                             echo '<tbody>';
+                                             echo '<tr>';
+                                             echo '<th scope="row"><label for="admin_response" class="form-label">Admin Response</label></th>';
+                                             echo '<td><input type="text" placeholder="Enter your Message" class="form-control" id="admin_response" name="admin_response" required';
+
+                                             // Check if admin_response has a value in the database
+                                             if (!empty($row['admin_response'])) {
+                                                  echo ' value="' . htmlspecialchars($row['admin_response']) . '"';
                                              }
-                                        
-                                             // Check if a message with the specified message_id exists
-                                             if (mysqli_num_rows($result) > 0) {
-                                                  $row = mysqli_fetch_assoc($result);
-                                                  echo '<table class="table">';
-                                                  echo '<tbody>';
-                                        
-                                                  // echo '<tr>';
-                                                  // echo '<th scope="row">Message ID</th>';
-                                                  // echo '<td>' . $row['message_id'] . '</td>';
-                                                  // echo '</tr>';
-                                        
-                                                  echo '<tr>';
-                                                  echo '<th scope="row">Full Name</th>';
-                                                  echo '<td>' . $row['client_name'] . '</td>';
-                                                  echo '</tr>';
-                                        
-                                                  echo '<tr>';
-                                                  echo '<th scope="row">Email</th>';
-                                                  echo '<td>' . $row['client_email'] . '</td>';
-                                                  echo '</tr>';
-                                        
-                                                  echo '<tr>';
-                                                  echo '<th scope="row">Subject</th>';
-                                                  echo '<td>' . $row['subject'] . '</td>';
-                                                  echo '</tr>';
-                                        
-                                                  echo '<tr>';
-                                                  echo '<th scope="row">Message Date</th>';
-                                                  echo '<td>' . $row['date'] . '</td>';
-                                                  echo '</tr>';
-                                        
-                                                  echo '<tr>';
-                                                  echo '<th scope="row">Message</th>';
-                                                  echo '<td>' . $row['message'] . '</td>';
-                                                  echo '</tr>';
-                                        
-                                                  echo '</tbody>';
-                                                  echo '</table>';
-                                        
-                                                  // The Admin Form is here
-                                                  echo '<form method="POST" action="">';
-                                                  echo '<table class="table">';
-                                                  echo '<tbody>';
-                                                       echo '<tr>';
-                                                            echo '<th scope="row"><label for="admin_response" class="form-label">Admin Response</label></th>';
-                                                            echo '<td><input type="text" placeholder="Enter your Message" class="form-control" id="admin_response" name="admin_response" required></td>';
-                                                       echo '</tr>';
-                                                  echo '</tbody>';
-                                                  echo '</table>';
-                                        
-                                                  echo '<div style="float: right;">
-                                                       <button type="submit" class="btn-a buttons">Submit</button>
-                                                       <a href="Message.php" class="btn-b buttons">Cancel</a>
-                                                       </div>';
-                                                  echo '</form>';
-                                                  // Forms end here
-                                             } else {
-                                                  echo 'Message not found.';
-                                             }
+
+                                             echo '></td>';
+                                             echo '</tr>';
+                                             echo '</tbody>';
+                                             echo '</table>';
+
+                                             echo '<div style="float: right;">';
+                                             echo '<button type="submit" class="btn-a buttons">Submit</button>';
+                                             echo '<a href="Message.php" class="btn-b buttons">Cancel</a>';
+                                             echo '</div>';
+                                             echo '</form>';
+                                             // Forms end here
+                                   
                                         } else {
-                                             echo 'Message ID not provided.';
+                                             echo 'Message not found.';
                                         }
-                                        
-                                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                                             // Check if the admin_response field is set in the POST data
-                                             if (isset($_POST['admin_response'])) {
-                                                  // Get the admin response from the form
-                                                  $adminResponse = $_POST['admin_response'];
-                                        
-                                                  // Update the message table with the admin response
-                                                  $updateSql = "UPDATE message SET admin_response = ? WHERE message_id = ?";
-                                                  $stmt = mysqli_prepare($con, $updateSql);
-                                        
-                                                  if ($stmt) {
-                                                  // Bind parameters
-                                                  mysqli_stmt_bind_param($stmt, 'si', $adminResponse, $message_id);
-                                        
-                                                  // Execute the update query
-                                                  if (mysqli_stmt_execute($stmt)) {
-                                                       // echo 'Response successfully sent.';
-                                                       echo '<script>window.location = "Message.php";</script>';
-                                                  } else {
-                                                       echo 'Error updating admin response: ' . mysqli_error($con);
-                                                  }
-                                        
-                                                  // Close the prepared statement
-                                                  mysqli_stmt_close($stmt);
-                                                  } else {
-                                                  echo 'Error preparing update statement: ' . mysqli_error($con);
-                                                  }
-                                             } else {
-                                                  echo 'Admin response not provided.';
-                                             }
-                                        }
-                                        
-                                        mysqli_close($con);
-                                        
-                                        ?>
-                                             
-                                        
-                                   </div>
+} else {
+     echo 'Message ID not provided.';
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+     // Check if the admin_response field is set in the POST data
+     if (isset($_POST['admin_response'])) {
+          // Get the admin response from the form
+          $adminResponse = $_POST['admin_response'];
+
+          // Update the message table with the admin response
+          $updateSql = "UPDATE message SET admin_response = ? WHERE message_id = ?";
+          $stmt = mysqli_prepare($con, $updateSql);
+
+          if ($stmt) {
+               // Bind parameters
+               mysqli_stmt_bind_param($stmt, 'si', $adminResponse, $message_id);
+
+               // Execute the update query
+               if (mysqli_stmt_execute($stmt)) {
+                    // echo 'Response successfully sent.';
+                    echo '<script>window.location = "Message.php";</script>';
+               } else {
+                    echo 'Error updating admin response: ' . mysqli_error($con);
+               }
+
+               // Close the prepared statement
+               mysqli_stmt_close($stmt);
+          } else {
+               echo 'Error preparing update statement: ' . mysqli_error($con);
+          }
+     } else {
+          echo 'Admin response not provided.';
+     }
+}
+
+mysqli_close($con);
+
+?>
+
+
                               </div>
                          </div>
                     </div>
                </div>
           </div>
-          <script>document.getElementById('message-nav').style = "border: 3px solid black;";</script>
-     </body>
+     </div>
+     <script>document.getElementById('message-nav').style = "border: 3px solid black;";</script>
+</body>
+
 </html>

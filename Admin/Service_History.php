@@ -161,10 +161,10 @@ if (!$result) {
                                             echo "<td>" . $row['fullname'] . "</td>";
                                             echo "<td>" . $row['car_model'] . "</td>";
                                             echo "<td>" . $row['service_type'] . "</td>";
-                                            if ($row['request_status'] == 1) {
-                                             echo "<td>Approved</td>";
-                                         } else {
+                                            if ($row['request_status'] == 0) {
                                              echo "<td>Pending</td>";
+                                         } else {
+                                             echo "<td>Approved</td>";
                                          }
                                             echo '<td><a href="Admin_View_Service_History.php?request_id=' . $row['request_id'] . '" class="btn-edit">View</a></td>';
                                             echo "</tr>";

@@ -118,6 +118,7 @@
                                    echo '<tr>';
                                    echo '<th scope="row">Service Type</th>';
                                    echo '<td>' . $row['service_type'] . '</td>';
+                                   
                                    echo '</tr>';
 
                                    echo '<tr>';
@@ -125,11 +126,23 @@
                                    echo '<td>' . $row['car_problem'] . '</td>';
                                    echo '</tr>';
 
+                                   echo '<tr>';
+                                   echo '<th scope="row">Request Status</th>';
+                                   if ($row['request_status'] == '0') {
+                                       echo '<td>Pending</td>';
+                                   } else {
+                                       echo '<td>Confirmed</td>';
+                                   }
+                                   echo '</tr>';
+
 
                                    // Now, fetch and display data from the service_cost table
-                                   $serviceCostSql ="SELECT sc.*, m.fullname AS mechanic_name FROM service_cost sc
+                                   $serviceCostSql = "SELECT sc.*, m.fullname AS mechanic_name, ss.service_status_name AS serv_stat_name
+                                   FROM service_cost sc
                                    LEFT JOIN mechanic m ON sc.mechanic_id = m.mechanic_id
+                                   LEFT JOIN service_status ss ON sc.service_status_id = ss.service_status_id
                                    WHERE sc.request_id = $request_id";
+
                                    $serviceCostResult = mysqli_query($con, $serviceCostSql);
                               
                                    if (!$serviceCostResult) {
@@ -176,6 +189,11 @@
                                         echo '<tr>';
                                         echo '<th scope="row">Mechanic Name</th>';
                                         echo '<td>' . $serviceCostRow['mechanic_name'] . '</td>';
+                                        echo '</tr>';
+
+                                        echo '<tr>';
+                                        echo '<th scope="row">Service Status</th>';
+                                        echo '<td>' . $serviceCostRow['serv_stat_name'] . '</td>';
                                         echo '</tr>';
                               
                                         echo '</tbody>';
