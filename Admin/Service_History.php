@@ -182,5 +182,5 @@ if (!$result) {
                     </div>
                </div>
           </div>
-
+          <script>document.getElementById('service-history-nav').style = "border: 3px solid black !important;";</script>
 </html>
