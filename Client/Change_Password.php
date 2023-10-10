@@ -1,7 +1,56 @@
 <?php
 include('../connection.php');
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get user input
+    $oldPassword = $_POST['old_password'];
+    $newPassword = $_POST['new_password'];
+    $confirmPassword = $_POST['confirm_new_password'];
+    
+    // Retrieve the user's current password from the database (replace 'your_query_here' with the actual query)
+    $client_id = $_SESSION['client_id']; // Adjust this based on your session management
+    $query = "SELECT password FROM client WHERE client_id = $client_id";
+    $result = mysqli_query($con, $query);
+    
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        $currentPassword = $row['password'];
+        
+        // Verify the old password
+        if ($oldPassword === $currentPassword) {
+            // Check if new password and confirmation match
+            if ($newPassword === $confirmPassword) {
+                // Update the user's password in the database
+                $updateQuery = "UPDATE client SET password = '$newPassword' WHERE client_id = $client_id";
+                if (mysqli_query($con, $updateQuery)) {
+                    // Password successfully changed
+                    header("Location: my-account.php"); // Redirect to a success page
+                    exit();
+                } else {
+                    // Error updating password in the database
+                    $error = "Error updating password.";
+                }
+            } else {
+                // Password and confirmation don't match
+                $error = "New password and confirmation do not match.";
+            }
+        } else {
+            // Old password is incorrect
+            $error = "Old password is incorrect.";
+        }
+    } else {
+        // Error querying the database
+        $error = "Database error.";
+    }
+}
 ?>
+
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +87,11 @@ include('../connection.php');
                     <div class="head-section-txt">MY ACCOUNT</div>
                     <h1>PASSWORD</h1>
 
+                      <!-- Display error message if any -->
+                      <?php if (isset($error)) { ?>
+                        <div class="alert alert-danger"><?php echo $error; ?></div>
+                    <?php } ?>
+
                     <form method="POST" action="">
                         <div class="mb-3">
                             <label for="old_password" class="form-label">Old Password:</label>
@@ -54,9 +108,9 @@ include('../connection.php');
                             <input type="password" class="registration-input form-control input-number-only"
                                 id="confirm_new_password" name="confirm_new_password" required>
                         </div>
-                        <a href="" class="text-white">Save</a>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </form>
-                    <a href="" class="text-white">Save</a>
+    
 
 
 
