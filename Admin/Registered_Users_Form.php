@@ -25,19 +25,6 @@ if ($client_id) {
     mysqli_stmt_close($stmt);
 }
 ?>
-<head>
-    <title>Registered Clients</title>
-</head>
-<body>
-    <h1>Clients</h1>
-   
-
-
-        <!-- <button type="submit" class="btn btn-primary"><?php echo isset($client_id) ? : 'Submit'; ?></button> -->
-        
-    </form>
-</body>
-
 
 <!DOCTYPE html>
 <html lang="en">
