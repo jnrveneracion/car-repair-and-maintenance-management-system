@@ -85,7 +85,7 @@
                     <a href="Service_Offer.php" class="side-bar-link"><li class="side-bar-link-section">Services Offer</li></a>
                     <a href="Mechanic.php" class="side-bar-link"><li class="side-bar-link-section">Mechanics</li></a>
                     <a href="Registered_Users.php" class="side-bar-link"><li class="side-bar-link-section">Registered Users</li></a>
-                    <a href="" class="side-bar-link"><li class="side-bar-link-section">Message</li></a>
+                    <a href="../Admin/Message.php" class="side-bar-link"><li class="side-bar-link-section">Message</li></a>
                     <a href="Service_Request.php" class="side-bar-link"><li class="side-bar-link-section">Service Request</li></a>
                     <a href="Pending_Service.php" class="side-bar-link"><li class="side-bar-link-section">Pending Service</li></a>
                     <a href="Service_History.php" class="side-bar-link"><li class="side-bar-link-section">Service History</li></a>
