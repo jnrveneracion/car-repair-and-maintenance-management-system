@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,66 +18,41 @@
                <p style="font-size: 20px; font-weight: 200; margin: 0px;">Explore Our Services</p>
           </div>
           <div class="row m-2 p-3">
-               <div class="col-xl-4 col-lg-6 col-12">
-                    <div>
-                         <div class="m-4 box-section d-flex justify-content-center align-items-center">
-                              <div class="">
-                                   <p>Car Detailing</p>
-                                   <p class="fw-lighter">Cleaning, polishing, and restoring a vehicle’s interior and exterior to enhance its appearance.</p>
-                              </div>
-                         </div>
-                    </div>
-               </div>
-               <div class="col-xl-4 col-lg-6 col-12">
-                    <div>
-                         <div class="m-4 box-section d-flex justify-content-center align-items-center">
-                              <div class="">
-                                   <p>Tire Replacement</p>
-                                   <p class="fw-lighter">Tire Replacement Tire rotation, balancing, alignment, and replacement services.</p>
-                              </div>
-                         </div>
-                    </div>
-               </div>
-               <div class="col-xl-4 col-lg-6 col-12">
-                    <div>
-                         <div class="m-4 box-section d-flex justify-content-center align-items-center">
-                              <div class="">
-                                   <p>Painting and Bodywork</p>
-                                   <p class="fw-lighter">Repairing dents, scratches, and repainting damaged or faded areas of the vehicle.</p>
-                              </div>
-                         </div>
-                    </div>
-               </div>
-               <div class="col-xl-4 col-lg-6 col-12">
-                    <div>
-                         <div class="m-4 box-section d-flex justify-content-center align-items-center">
-                              <div class="">
-                                   <p>Battery Replacement</p>
-                                   <p class="fw-lighter">Checking and replacing old or malfunctioning car batteries.</p>
-                              </div>
-                         </div>
-                    </div>
-               </div>
-               <div class="col-xl-4 col-lg-6 col-12">
-                    <div>
-                         <div class="m-4 box-section d-flex justify-content-center align-items-center">
-                              <div class="">
-                                   <p>Exhaust System Repair</p>
-                                   <p class="fw-lighter">Checking and replacing old or malfunctioning car batteries.</p>
-                              </div>
-                         </div>
-                    </div>
-               </div>
-               <div class="col-xl-4 col-lg-6 col-12">
-                    <div>
-                         <div class="m-4 box-section d-flex justify-content-center align-items-center">
-                              <div class="">
-                                   <p>Diagnosis</p>
-                                   <p class="fw-lighter">Using advanced tools to troubleshoot electronic and mechanical issues in the vehicle.</p>
-                              </div>
-                         </div>
-                    </div>
-               </div>
+               <?php
+               // Include the database connection file
+               require("Admin/Admin_Connection.php");
+
+               // Query to retrieve service offers
+               $query = "SELECT * FROM services_offer";
+
+               // Execute the query
+               $result = mysqli_query($con, $query);
+
+               // Check if the query was successful
+               if ($result) {
+                   // Fetch and display service offers
+                   while ($row = mysqli_fetch_assoc($result)) {
+                       echo '<div class="col-xl-4 col-lg-6 col-12">';
+                       echo '<div>';
+                       echo '<div class="m-4 box-section d-flex justify-content-center align-items-center">';
+                       echo '<div class="">';
+                       echo '<p>' . $row['type'] . '</p>';
+                       echo '<p class="fw-lighter">' . $row['description'] . '</p>';
+                       echo '</div>';
+                       echo '</div>';
+                       echo '</div>';
+                       echo '</div>';
+                   }
+
+                   // Free the result set
+                   mysqli_free_result($result);
+               } else {
+                   echo 'Error: ' . mysqli_error($con);
+               }
+
+               // Close the database connection
+               mysqli_close($con);
+               ?>
           </div>
      </div>
 
