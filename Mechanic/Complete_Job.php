@@ -91,7 +91,7 @@
                     <div class="col-xl-2 col-0"></div>
                     <div class="col-xl-10 col-12">
                          <div class="d-flex justify-content-center">
-                              <h3 class="mechanic-head-txt mb-0">Job Assignment</h3>
+                              <h3 class="mechanic-head-txt mb-0">Completed Job Assignment</h3>
                          </div>
                          <div class="d-flex justify-content-center">
                               <hr style="opacity: 1; color: white; width: 80%;">
@@ -137,6 +137,6 @@
 
                </div>
           </div>
-          <script>document.getElementById('job-assignment').style = "border: 3px solid black;";</script>
+          <script>document.getElementById('complete-job').style = "border: 3px solid black;";</script>
      </body>
 </html>
