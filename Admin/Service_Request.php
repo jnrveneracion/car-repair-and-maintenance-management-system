@@ -169,5 +169,6 @@ $result = mysqli_query($con, $sql);
                     </div>
                </div>
           </div>
+          <script>document.getElementById('service-request-nav').style = "border: 3px solid black;";</script>
      </body>
 </html>

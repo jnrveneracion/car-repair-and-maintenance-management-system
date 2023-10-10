@@ -190,5 +190,6 @@
                     </div>
                </div>
           </div>
+          <script>document.getElementById('registered-users-nav').style = "border: 3px solid black;";</script>
      </body>
 </html>

@@ -184,5 +184,6 @@ $totalServiceCosts = $costData['total_service_costs'];
                </div>
           </div>
      </div>
+     <script>document.getElementById('dashboard-nav').style = "border: 3px solid black;";</script>
 </body>
 </html>
