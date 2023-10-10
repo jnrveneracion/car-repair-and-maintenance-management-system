@@ -75,6 +75,10 @@ if ($result) {
                     width: 105px;
                     margin: 0 auto;
                }
+
+               label {
+                    color: white;
+               }
           </style>
      </head>
 

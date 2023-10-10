@@ -51,9 +51,9 @@ $result = mysqli_query($con, $sql);
                }
 
                th {
-                    background-color: black!important;
+                    background-color: transparent !important;
                     color: white !important;
-                    font-weight: 400;
+                    font-weight: bold;
                     border: 1px solid white;
                }
 

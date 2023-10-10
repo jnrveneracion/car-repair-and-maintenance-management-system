@@ -88,7 +88,7 @@ if (isset($_SESSION['client_id']) && $_SESSION['role'] == 'client') {
     <?php include "../common/navbar-for-folder.php" ?>
 
     <div class="f-height d-flex justify-content-center" style="margin-bottom: 50px;">
-          <div class="text-white section">
+          <div class="text-white section" style="min-height: 445px;">
                <div>
                     <div>
                         <div class="head-section-txt">MY SERVICE REQUEST</div>

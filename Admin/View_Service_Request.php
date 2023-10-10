@@ -49,9 +49,9 @@ if (isset($_GET['request_id'])) {
                }
 
                th {
-                    background-color: black!important;
+                    background-color: transparent !important;
                     color: white !important;
-                    font-weight: 400;
+                    font-weight: bold;
                     border: 1px solid white;
                }
 
@@ -192,11 +192,15 @@ if (isset($_GET['request_id'])) {
                                              echo '<th scope="row">Car Problem</th>';
                                              echo '<td>' . $row['car_problem'] . '</td>';
                                              echo '</tr>';
-                                   
+
+                                             echo '<tr>';
+                                             echo '<th scope="row">Status</th>';
+                                             echo '<td><a href="Approve_Service_Request.php?request_id=' . $row['request_id'] . '" class="btn-a buttons">Approve</a></td>';
+                                             echo '</tr>';
+
                                              echo '</tbody>';
                                              echo '</table>';
-                                   
-                                             echo '<a href="Approve_Service_Request.php?request_id=' . $row['request_id'] . '" class="btn-a buttons">Approve</a>';
+                              
                                              echo '<a href="Service_Request.php" class="btn-b buttons">Cancel</a>';
                                         } else {
                                              echo "<div class='text-white'>No records found for the specified request ID.</div>";

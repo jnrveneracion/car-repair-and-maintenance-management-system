@@ -29,7 +29,7 @@
                     padding: 30px;
                     margin-right: 20px;
                     margin-left: 20px;
-                    width: 1000px;
+                    width: 1200px;
                }
 
                .table-section {
@@ -52,6 +52,8 @@
                     color: white !important;
                     font-weight: 400;
                     border: 1px solid white;
+                    font-weight: bold;
+                    vertical-align: middle;
                }
 
                td {

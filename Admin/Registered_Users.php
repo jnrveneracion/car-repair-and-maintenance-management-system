@@ -51,6 +51,7 @@
                     color: white !important;
                     font-weight: 400;
                     border: 1px solid white;
+                    font-weight: bold;
                }
 
                td {
