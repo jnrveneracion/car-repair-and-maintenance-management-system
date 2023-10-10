@@ -8,7 +8,7 @@
       <th scope="col">#</th>
       <th scope="col">Owner Name</th>
       <th scope="col">Contact No</th>
-      <th scope="col">Car Brand</th>
+      <th scope="col">Vehicle Brand</th>
       <th scope="col">Service Type</th>
       <th scope="col">Date</th>
       <th scope="col">Mechanic Name</th>

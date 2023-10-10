@@ -99,8 +99,8 @@ if (isset($_SESSION['client_id']) && $_SESSION['role'] == 'client') {
                                 <thead>
                                     <tr>
                                         <th scope="col">Request ID</th>
-                                        <th scope="col">Car Brand</th>
-                                        <th scope="col">Car Model</th>
+                                        <th scope="col">Vehicle Brand</th>
+                                        <th scope="col">Vehicle Model</th>
                                         <th scope="col">Registration No</th>
                                         <th scope="col">Service Type</th>
                                         <th scope="col">Request Status</th>

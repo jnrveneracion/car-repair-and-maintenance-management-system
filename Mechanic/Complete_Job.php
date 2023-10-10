@@ -98,6 +98,7 @@
                          </div>
                          <div class="d-flex justify-content-center">
                               <div class="table-section">
+
                                    <table>
                                         <thead>
                                              <tr>
@@ -127,6 +128,7 @@
                                 }
                                 ?>
                                         </tbody>
+
                                    </table>
                               </div>
                          </div>

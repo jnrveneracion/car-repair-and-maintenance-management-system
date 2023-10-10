@@ -145,7 +145,7 @@ if (!$result) {
                                              <tr>
                                                   <th scope="col">Request ID</th>
                                                   <th scope="col">Full Name</th>
-                                                  <th scope="col">Car Model</th>
+                                                  <th scope="col">Vehicle Model</th>
                                                   <th scope="col">Service Type</th>
                                                   <th scope="col">Request Status</th>
                                                   <th scope="col">Action</th>
