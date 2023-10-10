@@ -261,3 +261,27 @@ if (isset($_GET['request_id'])) {
           <script>document.getElementById('pending-service-nav').style = "border: 3px solid black;";</script>
      </body>
 </html>
+
+<script>
+    // Function to calculate and update the Total Cost
+    function calculateTotalCost() {
+        // Get the values of Service Cost, Labor Cost, and Parts Cost
+        const serviceCost = parseFloat(document.getElementById('service_cost').value) || 0;
+        const laborCost = parseFloat(document.getElementById('labor_cost').value) || 0;
+        const partsCost = parseFloat(document.getElementById('parts_cost').value) || 0;
+
+        // Calculate the Total Cost
+        const totalCost = serviceCost + laborCost + partsCost;
+
+        // Update the Total Cost field with the calculated value
+        document.getElementById('total_cost').value = totalCost.toFixed(2);
+    }
+
+    // Add event listeners to the input fields to trigger the calculation
+    document.getElementById('service_cost').addEventListener('input', calculateTotalCost);
+    document.getElementById('labor_cost').addEventListener('input', calculateTotalCost);
+    document.getElementById('parts_cost').addEventListener('input', calculateTotalCost);
+
+    // Initial calculation when the page loads
+    calculateTotalCost();
+</script>

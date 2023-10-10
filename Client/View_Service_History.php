@@ -127,7 +127,9 @@
 
 
                                    // Now, fetch and display data from the service_cost table
-                                   $serviceCostSql = "SELECT * FROM service_cost WHERE request_id = $request_id";
+                                   $serviceCostSql ="SELECT sc.*, m.fullname AS mechanic_name FROM service_cost sc
+                                   LEFT JOIN mechanic m ON sc.mechanic_id = m.mechanic_id
+                                   WHERE sc.request_id = $request_id";
                                    $serviceCostResult = mysqli_query($con, $serviceCostSql);
                               
                                    if (!$serviceCostResult) {
@@ -173,7 +175,7 @@
                               
                                         echo '<tr>';
                                         echo '<th scope="row">Mechanic Name</th>';
-                                        echo '<td>' . $serviceCostRow['mechanic_id'] . '</td>';
+                                        echo '<td>' . $serviceCostRow['mechanic_name'] . '</td>';
                                         echo '</tr>';
                               
                                         echo '</tbody>';
