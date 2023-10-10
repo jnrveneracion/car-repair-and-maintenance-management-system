@@ -279,12 +279,12 @@ if (isset($_GET['request_id'])) {
 
                                              mysqli_free_result($serviceCostResult);
                                         } else {
-                                             echo "Request ID not specified.";
+                                             echo "Request ID not specified. A";
                                         }
 
                                         mysqli_free_result($result);
                                         } else {
-                                             echo "Request ID not specified.";
+                                             echo "Request ID not specified. B";
                                         }
 
                                         mysqli_close($con);

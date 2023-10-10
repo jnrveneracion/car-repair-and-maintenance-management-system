@@ -10,7 +10,8 @@ if (isset($_POST['update_status'])) {
      $update_result = mysqli_query($con, $update_sql);
 
      if ($update_result) {
-          echo "Service status updated successfully.";
+          // echo "Service status updated successfully.";
+          echo '<script>window.location = "Job_Assignment.php";</script>';
      } else {
           echo "Error updating service status: " . mysqli_error($con);
      }

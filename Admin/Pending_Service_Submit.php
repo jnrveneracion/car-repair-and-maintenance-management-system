@@ -35,7 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['request_id'])) {
             if ($update_stmt) {
                 mysqli_stmt_bind_param($update_stmt, 'i', $request_id);
                 if (mysqli_stmt_execute($update_stmt)) {
-                    echo "Service cost data saved successfully, and request_status updated to '2'.";
+                    header('Location: Pending_Service.php');
+                    exit();
                 } else {
                     echo "Error updating request_status: " . mysqli_error($con);
                 }

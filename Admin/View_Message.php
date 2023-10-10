@@ -225,7 +225,8 @@ if (isset($_GET['message_id'])) {
                                         
                                                   // Execute the update query
                                                   if (mysqli_stmt_execute($stmt)) {
-                                                       echo 'Response successfully sent.';
+                                                       // echo 'Response successfully sent.';
+                                                       echo '<script>window.location = "Message.php";</script>';
                                                   } else {
                                                        echo 'Error updating admin response: ' . mysqli_error($con);
                                                   }

@@ -24,7 +24,9 @@
 
      if (mysqli_stmt_execute($stmt)) {
           // Data inserted successfully
-          echo "Service request submitted successfully!"; //i-try iredirect sa form and refresh para di maduplicate
+          // echo "Service request submitted successfully!"; //i-try iredirect sa form and refresh para di maduplicate
+          header('Location: Service_Request_Form.php');
+          exit();
      } else {
           // Error occurred during insertion
           echo "Error: " . mysqli_error($con);

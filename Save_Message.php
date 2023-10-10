@@ -26,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->execute()) {
             // Successful insertion
-            echo "Message sent successfully!";
+            header('Location: Contact.php');
+            exit();
         } else {
             // Error handling if the insertion fails
             echo "Error: " . $con->error;
