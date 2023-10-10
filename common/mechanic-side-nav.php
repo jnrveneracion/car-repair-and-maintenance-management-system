@@ -81,11 +81,12 @@
                <ul class="navbar-nav">
                     <li class="admin-text text-center"><a href="" class="side-bar-link">VRMMS | MECHANIC</a></li>
                     <hr style="color: white; opacity: 1;">
-                    <a href="Dashboard.php" class="side-bar-link"><li class="side-bar-link-section">Dashboard</li></a>
-                    <a href="Job_Assignment.php" class="side-bar-link"><li class="side-bar-link-section">Job Assignment</li></a>
-                    <a href="Ongoing_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section">Ongoing</li></a>
-                    <a href="Complete_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section">Complete</li></a>
-                    <a href="../Client/Logout.php" class="side-bar-link"><li class="side-bar-link-section-b">Logout</li></a>
+                    <a href="Dashboard.php" class="side-bar-link"><li class="side-bar-link-section" id="dashboard">Dashboard</li></a>
+                    <a href="Job_Assignment.php" class="side-bar-link"><li class="side-bar-link-section" id="job-assignment">Job Assignment</li></a>
+                    <a href="Ongoing_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section" id="ongoing-job">Ongoing</li></a>
+                    <a href="Complete_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section" id="complete-job">Complete</li></a>
+                    <a href="../Client/Logout.php" class="side-bar-link"><li class="side-bar-link-section-b" id="logout">Logout</li></a>
+
                </ul>
           </div>
      </div>

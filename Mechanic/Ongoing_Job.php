@@ -104,5 +104,6 @@
 
                </div>
           </div>
+          <script>document.getElementById('ongoing-job').style = "border: 3px solid black;";</script>
      </body>
 </html>

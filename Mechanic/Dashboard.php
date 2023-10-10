@@ -112,5 +112,6 @@
                     </div>
                </div>
           </div>
+          <script>document.getElementById('dashboard').style = "border: 3px solid black;";</script>
      </body>
 </html>
