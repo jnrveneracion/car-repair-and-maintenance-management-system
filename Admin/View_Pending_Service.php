@@ -181,20 +181,20 @@ if (isset($_GET['request_id'])) {
 
                                                   echo '<tr>';
                                                   echo '<th scope="row"><label for="service_cost" class="form-label">Service Cost</label></th>';
-                                                  echo '<td><input type="text" placeholder="Enter service cost" class="form-control" id="service_cost" name="service_cost" required></td>';
+                                                  echo '<td><input type="text" placeholder="Enter service cost" class="form-control input-number-only" id="service_cost" name="service_cost" required></td>';
                                                   echo '</tr>';
 
                                                   echo '<tr>';
                                                   echo '<th scope="row"><label for="labor_cost" class="form-label">Labor Cost</label></th>';
-                                                  echo '<td><input type="text" placeholder="Enter labor cost" class="form-control" id="labor_cost" name="labor_cost" required></td>';
+                                                  echo '<td><input type="text" placeholder="Enter labor cost" class="form-control input-number-only" id="labor_cost" name="labor_cost" required></td>';
                                                   echo '</tr>';
                                                   echo '<tr>';
                                                   echo '<th scope="row"><label for="parts_cost" class="form-label">Parts Cost</label></th>';
-                                                  echo '<td><input type="text" placeholder="Enter parts cost" class="form-control" id="parts_cost" name="parts_cost" required></td>';
+                                                  echo '<td><input type="text" placeholder="Enter parts cost" class="form-control input-number-only" id="parts_cost" name="parts_cost" required></td>';
                                                   echo '</tr>';
                                                   echo '<tr>';
                                                   echo '<th scope="row"><label for="total_cost" class="form-label">Total Cost</label></th>';
-                                                  echo '<td><input type="text" placeholder="Total cost" class="form-control" id="total_cost" name="total_cost" required></td>';
+                                                  echo '<td><input type="text" placeholder="Total cost" class="form-control input-number-only" id="total_cost" name="total_cost" required></td>';
                                                   echo '</tr>';
                                                   echo '<tr>';
 
@@ -262,6 +262,7 @@ if (isset($_GET['request_id'])) {
      </body>
 </html>
 
+<script src="../js/input-only-number.js"></script>
 <script>
     // Function to calculate and update the Total Cost
     function calculateTotalCost() {

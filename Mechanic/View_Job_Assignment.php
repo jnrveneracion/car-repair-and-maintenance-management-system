@@ -38,6 +38,7 @@ if (isset($_GET['request_id'])) {
                          padding: 30px;
                          margin-right: 20px;
                          margin-left: 20px;
+                         margin-bottom: 90px;
                     }
 
                     .mechanic-head-txt {
@@ -73,10 +74,32 @@ if (isset($_GET['request_id'])) {
                     }
 
                     .btn-a {
-                         background-color: color(srgb 0.325 0.325 0.325);
-                         border: none;
-                         color: white !important;
+                         background-color: color(srgb 0.2706 0.7121 0.9729);
+                         border-radius: 0px;
+                         color: white;
+                         margin: 5px !important;
+                         text-decoration: none;
+                         padding: 10px 20px;
+                         border: none !important;
                     }
+
+                    .btn-a:hover, .btn-b:hover {
+                         filter: brightness(.9);
+                    }
+
+
+                    .btn-b.buttons {
+                         background-color: red;
+                         text-decoration: none;
+                         color: white;
+                         padding: 10px 20px;
+
+                    }
+
+                    .btn-edit, .btn-delete {
+                    font-size: 12px;
+                    padding: 5px 10px !important;
+               }
                </style>
           </head>
 
@@ -162,7 +185,9 @@ if (isset($_GET['request_id'])) {
                                              }
 
                                              if (mysqli_num_rows($serviceCostResult) > 0) {
-                                                  echo '<h3 class="text-center">Service Cost</h3>';
+                                                  echo '<div class="d-flex justify-content-center">';
+                                                  echo '<h5 class="mechanic-head-txt mb-2 text-center">Service Cost</h5>';
+                                                  echo '</div>';
 
                                                   echo '<table class="table">';
                                                   echo '<thead>';
@@ -223,17 +248,30 @@ if (isset($_GET['request_id'])) {
                                                   echo '</table>';
 
                                                   // Display the "Update Service Status" section
-                                                  echo '<h3>Update Service Status</h3>';
+                                                  echo '<div class="d-flex justify-content-center">';
+                                                  echo '<h5 class="mechanic-head-txt mb-2 text-center">Update Service Status</h5>';
+                                                  echo '</div>';
                                                   echo '<form method="post" action="Update_Service_Status.php">';
-                                                  echo '<input type="hidden" name="request_id" value="' . $request_id . '">';
-                                                  echo '<label for="new_status">New Status:</label>';
-                                                  echo '<select name="new_status" id="new_status">';
-                                                  echo '<option value="1">Pending</option>';
-                                                  echo '<option value="2">Ongoing</option>';
-                                                  echo '<option value="3">Rejected</option>';
-                                                  echo '<option value="4">Completed</option>';
-                                                  echo '</select>';
-                                                  echo '<button type="submit" name="update_status">Update</button>';
+                                                  echo '<table class="table">';
+                                                  echo '<tbody>';
+                                                       echo '<input type="hidden" name="request_id" value="' . $request_id . '">';
+                                                       echo '<tr>';
+                                                            echo '<th scope="row">New Status</th>';
+                                                            echo '<td>';
+                                                            echo '<select name="new_status" id="new_status">';
+                                                            echo '<option value="1">Pending</option>';
+                                                            echo '<option value="2">Ongoing</option>';
+                                                            echo '<option value="3">Rejected</option>';
+                                                            echo '<option value="4">Completed</option>';
+                                                            echo '</select>';
+                                                            echo '</td>';
+                                                       echo '</tr>';
+                                                       
+                                                  echo '</tbody>';     
+                                                  echo '</table>';
+                                                  echo '<div class="d-flex justify-content-end align-items-center"><button type="submit" name="update_status" class="buttons btn-a">Update</button>
+                                                       <a href="Job_Assignment.php" class="btn-b buttons">Cancel</a>
+                                                       </div>';
                                                   echo '</form>';
                                              } else {
                                                   echo "Wait for service cost for this request.";

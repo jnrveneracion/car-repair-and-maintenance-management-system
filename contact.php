@@ -55,12 +55,12 @@
                                    <div class="input-group mb-3">
                                         <span class="input-group-text label" id="subject">Subject:</span>
                                         <input type="text" class="input" aria-label="subject" name="subject"
-                                             aria-describedby="basic-addon1">
+                                             aria-describedby="basic-addon1" required>
                                    </div>
                                    <div class="input-group mb-3">
                                         <span class="input-group-text label" id="message">Message:</span>
                                         <textarea class="input" aria-label="message" style="height: 150px;"
-                                             name="message"></textarea>
+                                             name="message" required></textarea>
                                    </div>
                                    <button type="submit" class="btn submit-btn">Send Message</button>
                               </form>

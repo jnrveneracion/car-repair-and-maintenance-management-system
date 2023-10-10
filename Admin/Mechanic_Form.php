@@ -171,7 +171,7 @@ if ($mechanic_id) {
 
                                              <div class="mb-3 col-lg-6 col-12">
                                                   <label for="password" class="form-label">Password</label>
-                                                  <input type="text" class="form-control" id="password" name="password" required value="<?php echo isset($row['password']) ? $row['password'] : ''; ?>">
+                                                  <input type="password" class="form-control" id="password" name="password" required value="<?php echo isset($row['password']) ? $row['password'] : ''; ?>">
                                              </div>
                                         </div>
                                         <?php

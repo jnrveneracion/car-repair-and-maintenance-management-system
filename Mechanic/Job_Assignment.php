@@ -38,6 +38,7 @@
                     padding: 30px;
                     margin-right: 20px;
                     margin-left: 20px;
+                    width: 1200px;
                }
 
 
@@ -56,7 +57,7 @@
                }
 
                td {
-                    background-color: rgb(12, 48, 71) !important;
+                    background-color: transparent !important;
                     color: white !important;
                     border: 1px solid white;
                     vertical-align: middle;
@@ -77,6 +78,26 @@
                     background-color: color(srgb 0.325 0.325 0.325);
                     border: none;
                     color: white !important;
+               }
+
+               .btn-edit, .btn-delete  {
+                    border-radius: 0px;
+                    color: white;
+                    margin: 5px !important;
+                    text-decoration: none;
+                    padding: 3px 10px;
+               }
+
+               .btn-edit {
+                    background-color: color(srgb 0.2706 0.7121 0.9729);
+               }
+
+               .btn-a:hover, .btn-edit:hover, .btn-delete:hover  {
+                    filter: brightness(.9);
+               }
+
+               .btn-delete {
+                    background-color: red;
                }
           </style>
      </head>
@@ -120,7 +141,11 @@
                                                        echo "<td>" . $row['car_brand'] . "</td>";
                                                        echo "<td>" . $row['car_model'] . "</td>";
                                                        echo "<td>" . $row['service_type'] . "</td>";
-                                                       echo "<td><a href='View_Job_Assignment.php?request_id={$row['request_id']}' class='btn-a btn'>View</a></td>";
+                                                       echo "<td style='width: 17%;'>
+                                                                 <a href='View_Job_Assignment.php?request_id={$row['request_id']}' class='btn-edit'>View</a>
+                                                               
+                                                            </td>";
+                                                       
                                                        echo "</tr>";
                                                   }
                                                   mysqli_close($con);

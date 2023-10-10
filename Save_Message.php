@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $client_id = $_SESSION['client_id'];
     } else {
         // Handle the case where the user is not logged in.
-        echo "Error: User not logged in.";
+        header('Location: Client/Login.php');
         exit();
     }
 
