@@ -31,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_stmt_fetch($stmt)) {
         // Admin login successful
-        session_start(); // Start a session if not already started
-        $_SESSION['user_id'] = $admin_id;
+        session_start(); // Start a session if not already started | Need tanggalin to kapag maraming admin users
+        $_SESSION['user_id'] = $admin_id; //Palitan ng admin_id
         $_SESSION['fullname'] = $fullname;
         $_SESSION['role'] = 'admin';
         header("Location: ../Admin/Admin_Dashboard.php"); // Redirect to admin dashboard
@@ -50,8 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_stmt_fetch($stmt)) {
         // Mechanic login successful
-        session_start(); // Start a session if not already started
-        $_SESSION['user_id'] = $mechanic_id;
+        //session_start(); // Start a session if not already started
+        $_SESSION['mechanic_id'] = $mechanic_id;
         $_SESSION['fullname'] = $fullname;
         $_SESSION['role'] = 'mechanic';
         header("Location: ../Mechanic/dashboard.php"); // Redirect to mechanic dashboard

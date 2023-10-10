@@ -85,7 +85,7 @@
                     <a href="Job_Assignment.php" class="side-bar-link"><li class="side-bar-link-section">Job Assignment</li></a>
                     <a href="Ongoing_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section">Ongoing</li></a>
                     <a href="Complete_Job.php" class="side-bar-link"><li class="sub-side-bar-link-section">Complete</li></a>
-                    <a href="" class="side-bar-link"><li class="side-bar-link-section-b">Logout</li></a>
+                    <a href="../Client/Logout.php" class="side-bar-link"><li class="side-bar-link-section-b">Logout</li></a>
                </ul>
           </div>
      </div>
