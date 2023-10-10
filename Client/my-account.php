@@ -1,6 +1,28 @@
 <?php
 include('../connection.php');
 
+
+// Get the client_id from the session
+if (isset($_SESSION['client_id'])) {
+    $client_id = $_SESSION['client_id'];
+
+    $sql = "SELECT fullname, email, mobile_number, address, username FROM client WHERE client_id = $client_id";
+    $result = mysqli_query($con, $sql);
+
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        // Extract data from the row
+        $fullname = $row['fullname'];
+        $email = $row['email'];
+        $mobile_number = $row['mobile_number'];
+        $address = $row['address'];
+        $username = $row['username'];
+    } else {
+        // Handle database query error
+        echo "Error: " . mysqli_error($con);
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,35 +64,32 @@ include('../connection.php');
                         <div class="mb-3">
                             <label for="fullname" class="form-label">Full Name:</label>
                             <input type="text" class="registration-input form-control" id="fullname" name="fullname"
-                                required>
+                                required value="<?php echo $fullname; ?>" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address:</label>
-                            <input type="email" class="registration-input form-control" id="email" name="email"
-                                required>
+                            <input type="email" class="registration-input form-control" id="email" name="email" required
+                                value="<?php echo $email; ?>" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="mobile_number" class="form-label">Mobile Number:</label>
                             <input type="text" class="registration-input form-control input-number-only"
-                                id="mobile_number" name="mobile_number" required>
+                                id="mobile_number" name="mobile_number" required value="<?php echo $mobile_number; ?>"
+                                disabled>
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Address:</label>
                             <input type="text" class="registration-input form-control" id="address" name="address"
-                                required>
+                                required value="<?php echo $address; ?>" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="username" class="form-label">Username:</label>
                             <input type="text" class="registration-input form-control" id="username" name="username"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password:</label>
-                            <input type="password" class="registration-input form-control" id="password" name="password"
-                                required>
+                                required value="<?php echo $username; ?>" disabled>
                         </div>
                     </form>
-                    <a href="edit-account.php" class="text-white">EDIT ACCOUNT BUTTON</a>
+                    <a href="edit-account.php" class="text-white">Edit Account</a>
+                    <a href="Change_Password.php" class="text-white">Change Password</a>
 
 
 

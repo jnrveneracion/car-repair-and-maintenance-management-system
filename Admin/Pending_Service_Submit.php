@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['request_id'])) {
 
     if ($stmt) {
         // Bind the parameters
-        mysqli_stmt_bind_param($stmt, 'ssisiiii', $service_cost, $labor_cost, $parts_cost, $total_cost, $comment, $request_id, $assigned_mechanic, $service_status_id);
+        mysqli_stmt_bind_param($stmt, 'ssissiii', $service_cost, $labor_cost, $parts_cost, $total_cost, $comment, $request_id, $assigned_mechanic, $service_status_id);
 
         // Execute the statement
         if (mysqli_stmt_execute($stmt)) {
