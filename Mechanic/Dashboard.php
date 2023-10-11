@@ -1,11 +1,12 @@
 <?php
-require('../Admin/Admin_Connection.php');
+// require('../Admin/Admin_Connection.php');
+require('../Connection.php');
 
 // Function to execute SQL query and return the result as an associative array
 function executeQuery($sql)
 {
-    global $conn;
-    $result = mysqli_query($conn, $sql);
+    global $con;
+    $result = mysqli_query($con, $sql);
     if ($result) {
         return mysqli_fetch_assoc($result);
     } else {
@@ -13,18 +14,30 @@ function executeQuery($sql)
     }
 }
 
+$mechanic_id = $_SESSION['mechanic_id'];
+
 // Get the total number of service costs with service_status_id = '1'
-$sql = "SELECT COUNT(*) as total_service_costs FROM service_cost WHERE service_status_id = 1";
+$sql = "SELECT COUNT(*) as total_service_costs FROM service_cost WHERE service_status_id = 1 AND mechanic_id = $mechanic_id";
 $costData = executeQuery($sql);
 $totalServiceCosts = $costData['total_service_costs'];
 
+// 
+$sql = "SELECT COUNT(*) as total_ongoing_job FROM service_cost WHERE service_status_id = 2 AND mechanic_id = $mechanic_id";
+$OngoingJob = executeQuery($sql);
+$totalOngoingJob = $OngoingJob['total_ongoing_job'];
+
+$sql = "SELECT COUNT(*) as total_rejected_job FROM service_cost WHERE service_status_id = 3 AND mechanic_id = $mechanic_id";
+$totalReject = executeQuery($sql);
+$totalRejectedJob = $totalReject['total_rejected_job'];
+// 
+
 // Get the total number of service costs with service_status_id = '4'
-$sql = "SELECT COUNT(*) as total_complete_job FROM service_cost WHERE service_status_id = 4";
+$sql = "SELECT COUNT(*) as total_complete_job FROM service_cost WHERE service_status_id = 4 AND mechanic_id = $mechanic_id";
 $completeJob = executeQuery($sql);
 $totalCompleteJob = $completeJob['total_complete_job'];
 
 // Get the total number of service costs with service_status_id = '4'
-$sql = "SELECT COUNT(*) as total_job_assign FROM service_cost";
+$sql = "SELECT COUNT(*) as total_job_assign FROM service_cost WHERE mechanic_id = $mechanic_id";
 $totalJob = executeQuery($sql);
 $totalJobAssign = $totalJob['total_job_assign'];
 ?>
@@ -53,7 +66,7 @@ $totalJobAssign = $totalJob['total_job_assign'];
                     padding: 30px;
                     margin-right: 20px;
                     margin-left: 20px;
-                    width: 800px;
+                    width: 850px;
                }
 
                .mechanic-head-txt {
@@ -102,13 +115,13 @@ $totalJobAssign = $totalJob['total_job_assign'];
                          </div>
                          <div class="d-flex justify-content-center">
                               <div class="mechanic-section">
-                                   <div class="row">
+                                   <div class="row" style="display: flex; justify-content: center;">
                                         <div class="col-lg-6 col-xl-4 col-12 sec">
                                              <div class="d-flex justify-content-center">
                                                   <div class="m-3">
-                                                       <p class="sec-head">New Job Assignment</p>
+                                                       <p class="sec-head">Pending Job Assignment</p>
                                                        <div class="d-flex justify-content-center">
-                                             
+                                                            <!-- <span class="tot"><?php //echo $_SESSION['mechanic_id']; ?></span> -->
                                                             <span class="tot"><?php echo $totalServiceCosts; ?></span>
                                                             <!-- dito mo ilagay yung echo ng php -->
                                                        </div>
@@ -118,9 +131,31 @@ $totalJobAssign = $totalJob['total_job_assign'];
                                         <div class="col-lg-6 col-xl-4 col-12 sec">
                                              <div class="d-flex justify-content-center">
                                                   <div class="m-3">
-                                                       <p class="sec-head">Finish Job Assignment</p>
+                                                       <p class="sec-head">Ongoing Job Assignment</p>
+                                                       <div class="d-flex justify-content-center">
+                                                       <span class="tot"><?php echo $totalOngoingJob; ?></span>
+                                                            <!-- dito mo ilagay yung echo ng php -->
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="col-lg-6 col-xl-4 col-12 sec">
+                                             <div class="d-flex justify-content-center">
+                                                  <div class="m-3">
+                                                       <p class="sec-head">Complete Job Assignment</p>
                                                        <div class="d-flex justify-content-center">
                                                        <span class="tot"><?php echo $totalCompleteJob; ?></span>
+                                                            <!-- dito mo ilagay yung echo ng php -->
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="col-lg-6 col-xl-4 col-12 sec">
+                                             <div class="d-flex justify-content-center">
+                                                  <div class="m-3">
+                                                       <p class="sec-head">Rejected Job Assignment</p>
+                                                       <div class="d-flex justify-content-center">
+                                                       <span class="tot"><?php echo $totalRejectedJob; ?></span>
                                                             <!-- dito mo ilagay yung echo ng php -->
                                                        </div>
                                                   </div>

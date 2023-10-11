@@ -174,8 +174,8 @@ if (isset($_GET['request_id'])) {
                                              // Now, fetch and display data from the service_cost table with mechanic's full name
                                              $serviceCostSql = "SELECT sc.*, m.fullname AS mechanic_name, ss.service_status_name
                                              FROM service_cost sc
-                                             INNER JOIN mechanic m ON sc.mechanic_id = m.mechanic_id
-                                             INNER JOIN service_status ss ON sc.service_status_id = ss.service_status_id
+                                             LEFT JOIN mechanic m ON sc.mechanic_id = m.mechanic_id
+                                             LEFT JOIN service_status ss ON sc.service_status_id = ss.service_status_id
                                              WHERE sc.request_id = $request_id";
 
                                              $serviceCostResult = mysqli_query($con, $serviceCostSql);

@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Execute the prepared statement
         if (mysqli_stmt_execute($stmt)) {
             $_SESSION['registration_message'] = 'Registration successful!';
+            $_SESSION['message_txt_color'] = 'color(srgb 0.1742 0.5859 0.85)';
             header('Location: Client_Register.php');
             exit;
         } else {
@@ -110,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h6 class="text-center m-2">REGISTER</h6>
                 <hr>
                 <p id="registration-message"
-                    style="color: <?php echo isset($_SESSION['registration_message']) ? 'red' : 'color(srgb 0.1742 0.5859 0.85)'; ?>">
+                style="color: <?php echo isset($_SESSION['message_txt_color']) ? $_SESSION['message_txt_color'] : 'red'; ?> !important;">
                     <?php
                     if (isset($_SESSION['registration_message'])) {
                         echo $_SESSION['registration_message'];
