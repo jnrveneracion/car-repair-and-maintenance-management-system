@@ -7,21 +7,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newPassword = $_POST['new_password'];
     $confirmPassword = $_POST['confirm_new_password'];
     
-    // Retrieve the user's current password from the database (replace 'your_query_here' with the actual query)
+    // Retrieve the user's current password from the database
     $client_id = $_SESSION['client_id']; // Adjust this based on your session management
     $query = "SELECT password FROM client WHERE client_id = $client_id";
     $result = mysqli_query($con, $query);
-    
     if ($result) {
         $row = mysqli_fetch_assoc($result);
-        $currentPassword = $row['password'];
-        
+        $currentHashedPassword = $row['password'];
+
         // Verify the old password
-        if ($oldPassword === $currentPassword) {
+        if (password_verify($oldPassword, $currentHashedPassword)) {
             // Check if new password and confirmation match
             if ($newPassword === $confirmPassword) {
+                // Hash the new password
+                $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+
                 // Update the user's password in the database
-                $updateQuery = "UPDATE client SET password = '$newPassword' WHERE client_id = $client_id";
+                $updateQuery = "UPDATE client SET password = '$newPasswordHash' WHERE client_id = $client_id";
                 if (mysqli_query($con, $updateQuery)) {
                     // Password successfully changed
                     header("Location: my-account.php"); // Redirect to a success page
@@ -43,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Database error.";
     }
 }
+
 ?>
 
 <!DOCTYPE html>

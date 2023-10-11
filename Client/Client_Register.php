@@ -10,6 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+      // Hash the password
+      $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
     // Check if the email already exists in the database
     $email_check_query = "SELECT * FROM client WHERE email=?";
     $stmt_email_check = mysqli_prepare($con, $email_check_query);
@@ -24,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = mysqli_prepare($con, "INSERT INTO client (fullname, email, mobile_number, address, username, password) VALUES (?, ?, ?, ?, ?, ?)");
 
         // Bind parameters to the prepared statement
-        mysqli_stmt_bind_param($stmt, "ssssss", $fullname, $email, $mobile_number, $address, $username, $password); // No need to hash the password
+        mysqli_stmt_bind_param($stmt, "ssssss", $fullname, $email, $mobile_number, $address, $username, $hashed_password); // No need to hash the password
 
         // Execute the prepared statement
         if (mysqli_stmt_execute($stmt)) {

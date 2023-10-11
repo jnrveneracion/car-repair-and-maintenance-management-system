@@ -6,12 +6,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Check the client table
-    $stmt = mysqli_prepare($con, "SELECT client_id, fullname FROM client WHERE email = ? AND password = ?");
-    mysqli_stmt_bind_param($stmt, "ss", $email, $password);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $client_id, $fullname);
+     // Check the client table
+  $stmt = mysqli_prepare($con, "SELECT client_id, fullname, password FROM client WHERE email = ?");
+  mysqli_stmt_bind_param($stmt, "s", $email);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_bind_result($stmt, $client_id, $fullname, $hashed_password);
 
-    if (mysqli_stmt_fetch($stmt)) {
+  if (mysqli_stmt_fetch($stmt) && password_verify($password, $hashed_password)) {
         // Client login successful
         $_SESSION['client_id'] = $client_id; //client_id dapat eto
         $_SESSION['fullname'] = $fullname;
@@ -43,12 +44,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_close($stmt);
 
     // Check the mechanic table
-    $stmt = mysqli_prepare($con, "SELECT mechanic_id, fullname FROM mechanic WHERE email = ? AND password = ?");
-    mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+    $stmt = mysqli_prepare($con, "SELECT mechanic_id, fullname, password FROM mechanic WHERE email = ?");
+    mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $mechanic_id, $fullname);
+    mysqli_stmt_bind_result($stmt, $mechanic_id, $fullname, $hashed_password);
 
-    if (mysqli_stmt_fetch($stmt)) {
+    if (mysqli_stmt_fetch($stmt) && password_verify($password, $hashed_password)) {
         // Mechanic login successful
         //session_start(); // Start a session if not already started
         $_SESSION['mechanic_id'] = $mechanic_id;
@@ -57,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../Mechanic/dashboard.php"); // Redirect to mechanic dashboard
         exit();
     }
+
 
     // Close the statement for mechanic table
     mysqli_stmt_close($stmt);
