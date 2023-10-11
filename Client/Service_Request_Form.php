@@ -23,7 +23,7 @@ if (!isset($_SESSION['client_id'])) {
 }
 
 // Retrieve service types from the services_offer table
-$sql = "SELECT DISTINCT type FROM services_offer WHERE status = 'Active'"; //DISTINCT == Wala sa table pero nakakatawag ng column sa other table
+$sql = "SELECT DISTINCT type FROM services_offer WHERE status = 'Active'"; //DISTINCT == Wala sa table pero nakakatawag ng column sa other table | Sa table pala ng service offer to so hindi connect sa service request table
 $result = mysqli_query($con, $sql);
 
 // Check if there are any service types
